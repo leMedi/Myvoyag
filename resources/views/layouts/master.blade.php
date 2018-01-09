@@ -11,8 +11,10 @@
 
     </head>
     <body>
-        @include('layouts.header')
-        
+        @if(!isset($noHeader) || $noHeader == false)
+            @include('layouts.header')
+        @endif
+
         @yield('body')
         
         <script src="{{ asset('js/manifest.js') }}"></script>
