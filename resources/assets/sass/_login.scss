@@ -1,0 +1,51 @@
+#loginForm{
+
+	.full-height {
+		min-height: 100vh;
+	}
+
+	.height-100 {
+		height: 100%;
+	}
+
+	.vertical-align {
+		display: table;
+		height: 100%;
+		width: 100%;
+	}
+
+	.table-cell {
+		display: table-cell;
+		vertical-align: middle;
+	}
+
+	.pdd-horizon-70 {
+		padding-left: 70px !important;
+		padding-right: 70px !important;
+	}
+
+	.pdd-horizon-15 {
+		padding-left: 15px !important;
+		padding-right: 15px !important;
+	}
+
+	.mrg-btm-15 {
+		margin-bottom: 15px !important;
+	}
+
+	.font-size-13 {
+		font-size: 13px !important;
+	}
+
+	.pdd-top-10 {
+		padding-top: 10px !important;
+	}
+
+	.login-footer {
+		position: absolute;
+		bottom: 0px;
+		padding: 15px 30px;
+		border-top: 1px solid #e6ecf5;
+		width: 100%;
+		}
+	}
