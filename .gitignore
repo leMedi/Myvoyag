@@ -14,4 +14,4 @@ yarn-error.log
 # webpack auto generated files
 /public/css
 /public/js
-/public/
+/public/mix-manifest.json
