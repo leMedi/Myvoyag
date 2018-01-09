@@ -1,3 +1,4 @@
+ <?php	$noHeader = true ?>
 @extends('layouts.master')
 
 @section('body')
