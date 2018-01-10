@@ -69,6 +69,11 @@ a.text-dark:hover {
     border-color: #dfe3e9;
     color: #354052;
 }
+.btn-secondary:hover {
+    color: #354052!important;
+    border-color: #dfe3e9;
+}
+
 
 @import 'header';
 @import 'landing_card';
