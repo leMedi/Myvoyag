@@ -1,0 +1,49 @@
+.card.travel-card {
+
+    .card-body {
+        display: flex;
+        position: relative;
+        top: -15px;
+        padding: 0;
+        align-items: flex-end;
+    }
+    
+    .avatar {
+        border: 5px solid #fff;
+        display: inline-flex;
+        position: relative;
+        flex-shrink: 0;
+        margin-right: .9375rem;
+        margin-left: .625rem;
+    }
+    
+    .card-meta {
+        position: relative;
+        top: -13px;
+        display: flex;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .card-meta h3 {
+        font-size: 20px;
+        margin: 0;
+    }
+
+    .travel-country {
+        display: block;
+        color: #7f8fa4;
+        font-size: 1rem;
+    }
+
+    .card-footer {
+        background: #fff;
+        padding-right: 0;
+        padding-left: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between
+    }
+}

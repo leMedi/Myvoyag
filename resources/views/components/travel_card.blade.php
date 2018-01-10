@@ -1,9 +1,20 @@
-<div class="card p-3 mb-5">
-    <img class="card-img-top" src="https://zawiastudio.com/dashboard/demo/img/candidate2.jpg" alt="Card image cap">
+<div class="card travel-card p-3 mb-5">
+    <img class="card-img-top" src="{{ $bg }}" alt="Card image cap">
     <div class="card-body">
-        <img src="https://zawiastudio.com/dashboard/demo/img/avatar-72.jpg" alt="">
-        <div class="travel-meta">
-            
+        <img class="avatar rounded-circle" src="{{ $avatar }}" alt="">
+        <div class="card-meta">
+            <h3>
+                {{ $slot }}
+                <span class="travel-country">
+                    {{ $location }}
+                </span>
+            </h3>
+        </div>
+    </div>
+    <div class="card-footer">
+        <a class="btn btn-primary" href="#">New Message</a>
+        <div class="text-success pr-3">
+            {{ $count }} Place(s) Disponible
         </div>
     </div>
 </div>

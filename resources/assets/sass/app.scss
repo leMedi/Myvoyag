@@ -20,6 +20,19 @@ a, a:hover {
     border-color: #1a91eb;
 }
 
+.btn-success {
+    background: #39b54a;
+    background: linear-gradient(180deg,#39b54a,#34aa44);
+    border-color: #249533;
+}
+
+.btn-info {
+    background: #886ce6;
+    background: linear-gradient(180deg,#886ce6,#7d5be2);
+    border-color: #7d5be2;
+}
+
 @import 'header';
-@import '_landing_card';
+@import 'landing_card';
+@import 'travel_card';
 @import 'login';
