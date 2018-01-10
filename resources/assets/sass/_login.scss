@@ -1,4 +1,4 @@
-#loginForm{
+#login{
 
 	.full-height {
 		min-height: 100vh;
@@ -47,5 +47,30 @@
 		padding: 15px 30px;
 		border-top: 1px solid #e6ecf5;
 		width: 100%;
-		}
 	}
+
+	.bg {
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center center;
+	}
+
+	.img-caption {
+		position: absolute;
+		bottom: 10px;
+		left: 0px;
+		padding: 30px;
+		max-width: 600px;
+	}
+
+	.img-caption .caption-title {
+		color: #ffffff;
+		font-size: 35px;
+		font-weight: 300;
+		margin-bottom: 18px;
+	}
+
+	.caption-text {
+		color: #e6e6e6;
+	}
+}
