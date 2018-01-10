@@ -12,6 +12,32 @@ a, a:hover {
     color: #2ea1f8;
 }
 
+a.text-dark:hover {
+    color: #2ea1f8!important;
+    text-decoration: underline;    
+}
+
+
+
+////////
+//= Helpers
+.border-bottom {
+    border-bottom: 1px solid #e6eaee!important
+}
+
+.overflow-hidden {
+    overflow: hidden;
+}
+
+.dry-list {
+    list-style: none;
+    padding: 0;
+}
+
+.push-bottom {
+    padding-bottom: 300px;
+}
+
 ////////
 //= Buttons
 .btn-primary {
@@ -30,6 +56,18 @@ a, a:hover {
     background: #886ce6;
     background: linear-gradient(180deg,#886ce6,#7d5be2);
     border-color: #7d5be2;
+}
+
+.btn-danger {
+    background: #f95359;
+    border-color: #d35847;
+}
+
+.btn-secondary {
+    background: #fff;
+    background: linear-gradient(180deg,#fff,#f2f4f7);
+    border-color: #dfe3e9;
+    color: #354052;
 }
 
 @import 'header';
