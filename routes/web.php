@@ -19,7 +19,10 @@ Route::get('/login', function () {
     return view('login');
 });
 
-
 Route::get('/profile', function () {
     return view('profile');
+});
+
+Route::get('/table', function () {
+    return view('table');
 });
