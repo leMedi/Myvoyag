@@ -1,5 +1,9 @@
 
 #table{
+	.table-clickable tr:hover{
+		background: #f5f8fa!important;
+		cursor: pointer;
+	}
 
 	.c-table {
 		display: table;
