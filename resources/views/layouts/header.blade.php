@@ -23,11 +23,15 @@
 			<a  href="#" class="dropdown-toggle" role="button" id="dropdwonMenuAvatar" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				<img class="avatar rounded-circle" src="https://zawiastudio.com/dashboard/demo/img/avatar-72.jpg" alt="">
 			</a>
-
-			<div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdwonMenuAvatar">
+				<div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdwonMenuAvatar">
 				<a class="dropdown-item" href="#">Action</a>
 				<a class="dropdown-item" href="#">Another</a>
-				<a class="dropdown-item" href="#">Something</a>
+				<a href="{{ route('logout') }}"
+				onclick="event.preventDefault();
+				document.getElementById('logout-form').submit();"  class="dropdown-item">logout</a>
+				<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+				{{ csrf_field() }}
+				</form>
 			</div>
 		</div>
 
