@@ -7,7 +7,7 @@
 @section('main')
     @component('components.card')
         <h3>Ajouter Un Hotel</h3>
-        <form action="{{ url('/hotel') }}" method="POST">
+        <form action="{{ url('/hotels') }}" method="POST">
             {{ csrf_field() }}
             <div class="form-row">
                 <div class="form-group col-md-5">
@@ -118,9 +118,9 @@
             </tr>
         </thead>
 
-        <tbody>
+        <tbody id="hotels" class="table-clickable">
             @foreach ($hotels as $hotel)
-                <tr class="c-table__row">
+                <tr class="c-table__row" data-id="{{ $hotel->id }}">
                     <td class="c-table__cell">{{ $hotel->name }}</td>
                     <td class="c-table__cell">{{ $hotel->city }}, {{ $hotel->country }}
                         <small class="d-block text-primary">
@@ -190,15 +190,24 @@
 @section('scripts')
 
 <script>
+    $('#hotels tr').click(function (e){
+        e.preventDefault();
+        $this = $(this);
+
+        id = $this.data('id');
+
+        location.href = "{{ url('/hotels') }}/" + id;
+    });
+
     $('#deleteHotelModal').on('show.bs.modal', function (event) {
-        let button = $(event.relatedTarget) // Button that triggered the modal
-        let hotelName = button.data('name') // Extract info from data-* attributes
-        let hotelID = button.data('id') // Extract info from data-* attributes
+        let button = $(event.relatedTarget); // Button that triggered the modal
+        let hotelName = button.data('name'); // Extract info from data-* attributes
+        let hotelID = button.data('id'); // Extract info from data-* attributes
 
         let modal = $(this)
         modal.find('.modal-body .msg').html("Voulez vous vraiment supprimer l'hotel<br><b>'" + hotelName + "'</b>.");
-        modal.find('.modal-footer form').attr('action', "{{ url('/hotel') }}/" + hotelID);
-    })
+        modal.find('.modal-footer form').attr('action', "{{ url('/hotels') }}/" + hotelID);
+    });
 </script>
     
 @endsection

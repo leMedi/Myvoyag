@@ -40,7 +40,7 @@ class HotelController extends Controller
     public function store(Request $request)
     {
 
-        $validator = Validator::make($request->all(),
+        $validator = request()->validate(
         [
             'name'      => 'required|max:30',
             'tel'       => 'required',
@@ -49,16 +49,9 @@ class HotelController extends Controller
             'city'      => 'required|max:30',
             'address'   => 'required',
             'price'     => 'required|min:0',
-            'with_food' => 'boolean',
         ]);
-            
-        if ($validator->fails()) {
-            return back()
-            ->withErrors($validator)
-            ->withInput();
-        }
-            
-        $hotel = new Hotel();
+
+        $hotel = new Hotel;
         $hotel->name = Input::get('name');
         $hotel->tel = Input::get('tel');
         $hotel->rating = Input::get('rating');
@@ -68,9 +61,9 @@ class HotelController extends Controller
         $hotel->price = Input::get('price');
         
         if($request->has('with_food'))
-        $hotel->with_food = true;
+            $hotel->with_food = true;
         else
-        $hotel->with_food = false;
+            $hotel->with_food = false;
         
         $hotel->save();
         
@@ -86,7 +79,9 @@ class HotelController extends Controller
      */
     public function show(Hotel $hotel)
     {
-        //
+        return view('admin.hotel', [
+            'hotel' => $hotel
+        ]);
     }
 
     /**
