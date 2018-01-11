@@ -24,5 +24,17 @@ Route::get('/profile', function () {
 });
 
 Route::get('/table', function () {
+
     return view('table');
 });
+
+Auth::routes();
+
+Route::get('/users', function () {
+	 $users = DB::table('users')->get();
+
+    return view('users', ['users' => $users]);
+});
+
+
+
