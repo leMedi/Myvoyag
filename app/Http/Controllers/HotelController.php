@@ -92,7 +92,9 @@ class HotelController extends Controller
      */
     public function edit(Hotel $hotel)
     {
-        //
+        return view('admin.hotel_edit', [
+            'hotel' => $hotel
+        ]);
     }
 
     /**
@@ -104,7 +106,33 @@ class HotelController extends Controller
      */
     public function update(Request $request, Hotel $hotel)
     {
-        //
+        $validator = request()->validate(
+        [
+            'name'      => 'required|max:30',
+            'tel'       => 'required',
+            'rating'    => 'required|numeric|between:1,5',
+            'country'   => 'required|max:30',
+            'city'      => 'required|max:30',
+            'address'   => 'required',
+            'price'     => 'required|min:0',
+        ]);
+
+        $hotel->name = Input::get('name');
+        $hotel->tel = Input::get('tel');
+        $hotel->rating = Input::get('rating');
+        $hotel->country = Input::get('country');
+        $hotel->city = Input::get('city');
+        $hotel->address = Input::get('address');
+        $hotel->price = Input::get('price');
+        
+        if($request->has('with_food'))
+            $hotel->with_food = true;
+        else
+            $hotel->with_food = false;
+        
+        $hotel->save();
+        
+        return redirect('/hotels/' . $hotel->id);
     }
 
     /**

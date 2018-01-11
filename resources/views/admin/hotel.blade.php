@@ -11,7 +11,7 @@
         </div>
         <div class="col-4 col-xl-2">
             <div class="btn-group">
-                <button class="btn btn-secondary" type="button">
+                <button onClick="redirect('{{ url('/hotels') }}/edit/{{ $hotel->id }}')" class="btn btn-secondary" type="button">
                     Modifier
                 </button>
 

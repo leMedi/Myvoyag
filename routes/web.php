@@ -22,6 +22,8 @@ Route::get('/', function () {
 /* Hotels */
 Route::get('/hotels', 'HotelController@index');
 Route::get('/hotels/{hotel}', 'HotelController@show');
+Route::get('/hotels/edit/{hotel}', 'HotelController@edit');
+Route::post('/hotels/{hotel}', 'HotelController@update');
 Route::post('/hotels', 'HotelController@store');
 Route::delete('/hotels/{hotel}', 'HotelController@destroy');
 

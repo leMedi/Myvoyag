@@ -139,11 +139,11 @@
                     </td>
                     <td class="c-table__cell ">
                         <div class="btn-group">
-                            <button class="btn btn-secondary" type="button">
+                            <button onClick="redirect('{{ url('/hotels') }}/edit/{{ $hotel->id }}')" class="btn btn-secondary" type="button">
                                 Modifier
                             </button>
 
-                             <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="sr-only">Toggle Dropdown</span>
                             </button>
 
@@ -191,7 +191,8 @@
 
 <script>
     $('#hotels tr').click(function (e){
-        e.preventDefault();
+        // e.preventDefault();
+        event.stopPropagation();
         $this = $(this);
 
         id = $this.data('id');
