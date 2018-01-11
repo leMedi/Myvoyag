@@ -36,5 +36,14 @@ Route::get('/profile', function () {
 });
 
 Route::get('/table', function () {
+
     return view('table');
 });
+
+Auth::routes();
+
+Route::get('/users', 'UserController@index');
+
+
+
+
