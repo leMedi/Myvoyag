@@ -39,11 +39,8 @@ Route::get('/table', function () {
 
 Auth::routes();
 
-Route::get('/users', function () {
-	 $users = DB::table('users')->get();
+Route::get('/users', 'UserController@index');
 
-    return view('users', ['users' => $users]);
-});
 
 
 
