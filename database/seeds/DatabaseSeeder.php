@@ -18,6 +18,8 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('hello'),
             'departement' => 'info',
             'type' => 'admin',
+            'numPass' => '12SD48483 1',
+            'tel' => '0699998775'
         ]);
 
         DB::table('users')->insert([
@@ -27,6 +29,8 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('hello'),
             'departement' => 'info',
             'type' => 'admin',
+            'numPass' => '89SD47483 1',
+            'tel' => '0675886690'
         ]);
         
         $this->call(HotelsTableSeeder::class);
