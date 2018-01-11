@@ -74,6 +74,30 @@ a.text-dark:hover {
     border-color: #dfe3e9;
 }
 
+////////
+//= Cards
+.creditcard_card {
+    border-width: 2px;
+
+    .logo {
+        margin-bottom: 15px;
+    }
+
+    .creditcard-number {
+        color: #354052;
+        font-size: 28px;
+        font-weight: 600;
+        text-align: center;
+    }
+
+    .expiration-date {
+        margin: 0;
+        padding-left: 30px;
+        font-size: 17px;
+        color: #7f8fa4;
+    }
+
+}
 
 @import 'header';
 @import 'landing_card';
