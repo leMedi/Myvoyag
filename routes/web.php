@@ -31,9 +31,7 @@ Route::get('/login', function () {
     return view('login');
 });
 
-Route::get('/profile', function () {
-    return view('profile');
-});
+
 
 Route::get('/table', function () {
 
@@ -41,7 +39,7 @@ Route::get('/table', function () {
 });
 
 Auth::routes();
-
+Route::get('/profile', 'UserController@profile');
 Route::get('/users', 'UserController@index');
 
 

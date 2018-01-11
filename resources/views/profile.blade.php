@@ -14,42 +14,30 @@
             </div>
 
             @component('components.card')
-                <h4 class="font-weight-bold mb-3">General Info</h4>
+                <h4 class="font-weight-bold mb-3">Informations Générales</h4>
                 <dl class="d-flex py-2 m-2 border-bottom">
-                    <dt class="w-25">Name</dt>
-                    <dd>Edgar Kennedy</dd>
+                    <dt class="w-25">Nom</dt>
+                    <dd>{{ $user->firstName }} {{ $user->lastName }}</dd>
                 </dl>
                 <dl class="d-flex py-2 m-2 border-bottom">
                     <dt class="w-25">Email</dt>
-                    <dd>edgar.kennedy@dashboard.com</dd>
+                    <dd>{{ $user->email }}</dd>
                 </dl>
                 <dl class="d-flex py-2 m-2 border-bottom">
-                    <dt class="w-25">Birth day</dt>
-                    <dd>10/10/1980</dd>
+                    <dt class="w-25">Departement</dt>
+                    <dd>{{ $user->tel }}</dd>
                 </dl>
                 <dl class="d-flex py-2 m-2">
-                    <dt class="w-25">Country</dt>
-                    <dd>London, United Kingdom</dd>
+                    <dt class="w-25">Passport</dt>
+                    <dd>{{ $user->numPass }}</dd>
                 </dl>
             @endcomponent
 
             @component('components.card')
                 <h4 class="font-weight-bold mb-3">Jacobs Info</h4>
-                <dl class="d-flex py-2 m-2 border-bottom">
-                    <dt class="w-25">Déparetement</dt>
-                    <dd>Marketing</dd>
-                </dl>
-                <dl class="d-flex py-2 m-2 border-bottom">
-                    <dt class="w-25">Email</dt>
-                    <dd class="w-75">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius ex amet necessitatibus exercitationem ratione iste expedita sunt animi fuga, enim assumenda maxime cumque, asperiores placeat adipisci sequi culpa ad eveniet.</dd>
-                </dl>
-                <dl class="d-flex py-2 m-2 border-bottom">
-                    <dt class="w-25">Birth day</dt>
-                    <dd>10/10/1980</dd>
-                </dl>
                 <dl class="d-flex py-2 m-2">
-                    <dt class="w-25">Country</dt>
-                    <dd>London, United Kingdom</dd>
+                    <dt class="w-25">Déparetement</dt>
+                    <dd>{{ $user->departement }}</dd>
                 </dl>
             @endcomponent
 
@@ -90,6 +78,7 @@
                     <button class="d-inline btn btn-primary">Change Picture</button>
                 </div>
             @endcomponent
+            
             <div class="px-2">
                 <h4 class="font-weight-bold mb-3">FAQ</h4>
                 <ul class="dry-list">
