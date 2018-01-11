@@ -1,0 +1,35 @@
+.sidebar-1 {
+
+    .title {
+        font-size: 16px;
+        color: #9fa9ba;
+        margin: 10px 0 5px 20px;
+        transform: uppercase;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 5px;
+    }
+
+    ul li {
+        font-size: 20px;
+    }
+
+    .menu-link {
+        padding: 5px 0 5px 20px;
+        border-radius: 4px;
+        width: 100%;
+        color: #354052;
+        font-size: .875rem;
+        font-weight: 400;
+        display: block;
+    }
+    
+    li.active .menu-link {
+        text-decoration: none;
+        background-color: #1991eb;
+        color: #fff;
+    }
+}

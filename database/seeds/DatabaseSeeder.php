@@ -28,5 +28,7 @@ class DatabaseSeeder extends Seeder
             'departement' => 'info',
             'type' => 'admin',
         ]);
+        
+        $this->call(HotelsTableSeeder::class);
     }
 }

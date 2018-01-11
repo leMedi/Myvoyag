@@ -15,6 +15,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+/////////
+//= Admin
+/////
+
+/* Hotels */
+Route::get('/hotels', 'HotelController@index');
+Route::post('/hotel', 'HotelController@store');
+Route::delete('/hotel/{hotel}', 'HotelController@destroy');
+
 Route::get('/login', function () {
     return view('login');
 });
