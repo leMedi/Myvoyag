@@ -21,6 +21,8 @@ class CreateUsersTable extends Migration
             $table->string('departement');
             $table->enum('type', ['user', 'chef', 'cordi', 'admin']);
             $table->string('password');
+            $table->string('numPass');
+            $table->string('tel');
             $table->rememberToken();
             $table->timestamps();
         });
