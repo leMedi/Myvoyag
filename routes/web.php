@@ -27,6 +27,10 @@ Route::post('/hotels/{hotel}', 'HotelController@update');
 Route::post('/hotels', 'HotelController@store');
 Route::delete('/hotels/{hotel}', 'HotelController@destroy');
 
+/* CrediCards */
+Route::post('/creditcards', 'CreditCardController@store');
+Route::delete('/creditcards/{creditCard}', 'CreditCardController@destroy');
+
 Route::get('/login', function () {
     return view('login');
 });

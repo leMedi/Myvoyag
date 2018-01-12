@@ -20,8 +20,10 @@ class UserController extends Controller
 
     public function profile()
     {
+        $user = Auth::user();
         return view('profile', [
-            'user' => Auth::user()
+            'user'       => $user,
+            'creditCard' => $user->creditCard
         ]);
     }
 }
