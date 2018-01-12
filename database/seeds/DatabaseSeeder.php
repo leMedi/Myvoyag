@@ -34,5 +34,7 @@ class DatabaseSeeder extends Seeder
         ]);
         
         $this->call(HotelsTableSeeder::class);
+        $this->call(SitesTableSeeder::class);
+
     }
 }

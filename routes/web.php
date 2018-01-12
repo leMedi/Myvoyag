@@ -47,5 +47,14 @@ Route::get('/profile', 'UserController@profile');
 Route::get('/users', 'UserController@index');
 
 
+/* Sites */
+
+Route::get('/sites', 'SiteController@index');
+Route::get('/sites/{site}', 'SiteController@show');
+Route::get('/sites/edit/{site}', 'SiteController@edit');
+Route::post('/sites/{site}', 'SiteController@update');
+Route::post('/sites', 'SiteController@store');
+Route::delete('/sites/{site}', 'SiteController@destroy');
+
 
 
