@@ -1,0 +1,86 @@
+Goblal:
+  ☐ handle phone number (propaganistas/laravel-phon) @low 
+  ☐ (fix001)remeber old value for combobox after submit @high 
+  
+Users:
+  ✔ Table @done(18-01-11 20:22)
+  ✔ Login @done(18-01-11 20:22)
+  ✔ list @done(18-01-11 20:22)
+  ☐ user profile
+  ☐ session @high 
+  ☐ user level @high 
+  ☐ register @low
+  ☐ more info @critical 
+    ☐ type (responsable hiérarchique, directeur de division, gestionnaire de voyage)  
+    ☐ site de travaille (foriegnkey)
+    ☐ passport + date de validte
+    ☐ CIN + date de validite
+    ☐ date naissance
+    ☐ tel
+    ☐ responsable (foriegnkey)
+    ☐ code Imputation
+    ☐ code etablissement
+    ☐ car preferences (transmission, carburant)
+    ☐ est gold client chez Hertz?
+    ☐ flight seat (Hublot, couloir)
+  ☐ auth protect @critical
+
+Credit Card: @low
+  ☐ dynamic brand @low
+  ✔ table @done(18-01-12 11:28)
+  ✔ add @done(18-01-12 11:27)
+  ✘ edit @cancelled(18-01-12 11:28)
+  ✔ delete @done(18-01-12 11:27)
+  ✔ view @done(18-01-12 11:28)
+  ☐ logos for mastercard, cih ....
+  ☐ auth protect @critical
+  ☐ fix001
+
+Hotels:
+  ✔ schema @done(18-01-11 02:14)
+  ✔ table @done(18-01-11 00:21)
+  ✔ formulaire @done(18-01-11 00:21)
+  ✔ add @done(18-01-11 02:14)
+  ✔ list @done(18-01-11 02:14)
+  ✔ edit @done(18-01-11 18:05)
+  ✔ edit form @done(18-01-11 18:05)
+  ✔ show @done(18-01-11 17:06)
+  ✔ delete @done(18-01-11 14:34)
+  ☐ auth protect(admin only) @critical
+
+Airoports:
+  ☐ schema
+  ☐ table
+  ☐ formulaire
+  ☐ add
+  ☐ list
+  ☐ edit
+  ☐ edit form
+  ☐ show
+  ☐ delete
+
+Sites:
+  ✔ schema @done(18-01-13 16:11)
+  ✔ table @done(18-01-13 16:11)
+  ✔ formulaire @done(18-01-13 16:11)
+  ✔ add @done(18-01-13 16:11)
+  ✔ list @done(18-01-13 16:11)
+  ☐ edit
+  ☐ edit form
+  ✔ show @done(18-01-13 16:11)
+  ✔ delete @done(18-01-13 16:11)
+
+Voiture:
+  ☐ schema
+  ☐ table
+  ☐ formulaire
+  ☐ add
+  ☐ list
+  ☐ edit
+  ☐ edit form
+  ☐ show
+  ☐ delete
+
+pivot airo-site:
+  ☐ table
+  ☐ form
