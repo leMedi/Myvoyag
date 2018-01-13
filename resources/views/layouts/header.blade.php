@@ -21,7 +21,7 @@
 		
 		<div class="dropdown ml-2">
 			<a  href="#" class="dropdown-toggle" role="button" id="dropdwonMenuAvatar" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				<img class="avatar rounded-circle" src="https://zawiastudio.com/dashboard/demo/img/avatar-72.jpg" alt="">
+				<img class="avatar rounded-circle" src="/uploads/avatars/{{ Auth::user()->avatar }}" alt="">
 			</a>
 				<div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdwonMenuAvatar">
 				<a class="dropdown-item" href="#">Action</a>

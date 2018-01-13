@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Validator;
 use App\User;
+use Image;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Auth;
@@ -26,4 +28,20 @@ class UserController extends Controller
             'creditCard' => $user->creditCard
         ]);
     }
+
+    public function updateAvatar(Request $request){
+
+        if ($request->hasFile('avatar')){
+
+            $avatar = $request->file('avatar');
+            $filename = time() . '.' . $avatar->getClientOriginalExtension();
+            Image::make($avatar)->resize(154,154)->save(public_path('/uploads/avatars/'. $filename));
+            $user = Auth::user();
+            $user->avatar = $filename;
+            $user->save();
+        }
+        return redirect('/profile');
+    }
+
+
 }

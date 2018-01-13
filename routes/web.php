@@ -43,8 +43,12 @@ Route::get('/table', function () {
 });
 
 Auth::routes();
-Route::get('/profile', 'UserController@profile');
 Route::get('/users', 'UserController@index');
+
+/* Profile */
+
+Route::get('/profile', 'UserController@profile');
+Route::post('/profile/avatar','UserController@updateAvatar');
 
 
 /* Sites */

@@ -74,8 +74,13 @@
             <div class="col-md-4">
             @component('components.card')
                 <div class="text-center">
-                    <img class="avatar rounded-circle d-block w-50 mx-auto mb-3" src="https://zawiastudio.com/dashboard/demo/img/avatar-150.jpg" alt="">
-                    <button class="d-inline btn btn-primary">Change Picture</button>
+                    <img id="avatar" class="avatar rounded-circle d-block w-50 mx-auto mb-3" src="/uploads/avatars/{{ $user->avatar }}" alt="">
+                    <form enctype="multipart/form-data" action="/profile/avatar" method="POST">
+
+                        <input type="file" name="avatar" id="avatar-input" class="pl-5 ml-4" hidden>
+                        <input type="hidden" name="_token" value=" {{csrf_token()}} ">
+                        <button id="change-avatar" type="submit" class="d-inline btn btn-primary mt-3">Change Picture</button>
+                    </form>
                 </div>
             @endcomponent
             
@@ -196,4 +201,41 @@
         </div>
     </div>
 @endif
+@endsection
+
+@section('scripts')
+
+<script>
+    var $avatar = $('#avatar'),
+    $avatarInput = $('#avatar-input'),
+    $changeAvatar = $('#change-avatar'); // from submit btn
+    var hasAvatar = false;
+
+
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            
+            reader.onload = function (e) {
+                hasAvatar = true;
+                $changeAvatar.html('Enregistrer').removeClass('btn-primary').addClass('btn-danger');
+
+                $avatar.attr('src', e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    $avatarInput.change(function(){
+        readURL(this);
+    });
+
+    $changeAvatar.click(function(evt){
+        if(hasAvatar == false){
+            evt.preventDefault();
+            $avatarInput.click();
+        }
+    });
+
+</script> 
+
 @endsection
