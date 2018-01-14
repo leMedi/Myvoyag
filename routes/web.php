@@ -46,7 +46,11 @@ Route::get('/users', 'UserController@index');
 /* Profile */
 
 Route::get('/profile', 'UserController@profile');
+Route::post('/profile/changePassword','UserController@changePassword');
 Route::post('/profile/avatar','UserController@updateAvatar');
+Route::get('/profile/edit/', 'UserController@editProfile');
+Route::post('/profile/update', 'UserController@updateProfile');
+
 
 
 /* Sites */
@@ -58,5 +62,12 @@ Route::post('/sites/{site}', 'SiteController@update');
 Route::post('/sites', 'SiteController@store');
 Route::delete('/sites/{site}', 'SiteController@destroy');
 
+/* Users */
 
+Route::get('/users', 'UserController@index');
+Route::get('/users/{user}', 'UserController@show');
+Route::get('/users/edit/{user}', 'UserController@edit');
+Route::post('/users/{user}', 'UserController@update');
+Route::post('/users', 'UserController@store');
+Route::delete('/users/{user}', 'UserController@destroy');
 

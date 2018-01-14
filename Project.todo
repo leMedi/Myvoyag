@@ -10,21 +10,21 @@ Users:
   ☐ session @high 
   ☐ user level @high 
   ☐ register @low
-  ✔ user avatar @done(18-01-13 18:05)
-  ☐ more info @critical 
-    ☐ type (responsable hiérarchique, directeur de division, gestionnaire de voyage)  
-    ☐ site de travaille (foriegnkey)
-    ☐ passport + date de validte
-    ☐ CIN + date de validite
-    ☐ date naissance
-    ☐ tel
-    ☐ responsable (foriegnkey)
-    ☐ code Imputation
-    ☐ code etablissement
-    ☐ car preferences (transmission, carburant)
-    ☐ est gold client chez Hertz?
-    ☐ flight seat (Hublot, couloir)
+  ✔ more info @critical @done(18-01-14 01:45)
+    ✔ type (responsable hiérarchique, directeur de division, gestionnaire de voyage) @done(18-01-13 22:35)
+    ✔ site de travaille (foriegnkey) @done(18-01-13 22:39)
+    ✔ passport + date de validite @done(18-01-13 23:08)
+    ✔ CIN + date de validite @done(18-01-13 23:08)
+    ✔ date naissance @done(18-01-13 23:08)
+    ✔ tel @done(18-01-13 23:08)
+    ✔ responsable (foriegnkey) @done(18-01-13 23:08)
+    ✔ code Imputation @done(18-01-13 23:08)
+    ✔ code etablissement @done(18-01-13 23:08)
+    ✔ car preferences (transmission, carburant) @done(18-01-13 23:08)
+    ✔ est gold client chez Hertz? @done(18-01-13 23:08)
+    ✔ flight seat (Hublot, couloir) @done(18-01-13 23:08)
   ☐ auth protect @critical
+  ☐ add responsable at profile
 
 Credit Card: @low
   ☐ dynamic brand @low

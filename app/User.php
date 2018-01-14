@@ -32,4 +32,12 @@ class User extends Authenticatable
     {
         return $this->hasOne('App\CreditCard');
     }
+
+
+    public function site()
+    {
+        return $this->belongsTo('App\Site');
+    }
+
+    //TODO: responsable function
 }

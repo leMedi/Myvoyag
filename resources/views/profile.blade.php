@@ -9,7 +9,7 @@
                     <h1 class="h2">Profile</h1>
                 </div>
                 <div class="col-4 col-xl-2">
-                    <a href="#" class="btn btn-secondary float-right">Modifier</a>
+                    <a href="/profile/edit/" class="btn btn-secondary float-right">Modifier</a>
                 </div>
             </div>
 
@@ -24,39 +24,89 @@
                     <dd>{{ $user->email }}</dd>
                 </dl>
                 <dl class="d-flex py-2 m-2 border-bottom">
-                    <dt class="w-25">Departement</dt>
+                    <dt class="w-25">Numéro Tel</dt>
                     <dd>{{ $user->tel }}</dd>
+                </dl>
+                <dl class="d-flex py-2 m-2 border-bottom">
+                    <dt class="w-25">Date Naissance</dt>
+                    <dd>{{ $user->date_naissance }}</dd>
+                </dl>
+                <dl class="d-flex py-2 m-2  border-bottom">
+                    <dt class="w-25">CIN</dt>
+                    <dd>{{ $user->cin }}
+                        <small class="d-block text-danger ml-4">expiration: {{ $user->passport_expMonth }}/ {{ $user->passport_expYear }} </small>
+                    </dd>
                 </dl>
                 <dl class="d-flex py-2 m-2">
                     <dt class="w-25">Passport</dt>
-                    <dd>{{ $user->numPass }}</dd>
+                    <dd>{{ $user->passport }}
+                        <small class="d-block text-success ml-4">validiter: {{ $user->cin_valideMonth }}/ {{ $user->cin_valideYear }} </small>
+                    </dd>
                 </dl>
             @endcomponent
 
             @component('components.card')
                 <h4 class="font-weight-bold mb-3">Jacobs Info</h4>
-                <dl class="d-flex py-2 m-2">
+                <dl class="d-flex py-2 m-2 border-bottom">
                     <dt class="w-25">Déparetement</dt>
                     <dd>{{ $user->departement }}</dd>
                 </dl>
+                <dl class="d-flex py-2 m-2 border-bottom">
+                    <dt class="w-25">Code d'imputation</dt>
+                    <dd>{{ $user->code_imputation }}</dd>
+                </dl>
+                <dl class="d-flex py-2 m-2 border-bottom">
+                    <dt class="w-25">Code d'etablissement</dt>
+                    <dd>{{ $user->code_etablissement }}</dd>
+                </dl>
+
+                <dl class="d-flex py-2 m-2 border-bottom">
+                    <dt class="w-25">Site</dt>
+                    <dd>{{ $user->site->name }}</dd>
+                </dl>
+                <dl class="d-flex py-2 m-2">
+                    <dt class="w-25">Adresse</dt>
+                    <dd>{{ $user->site->address }}</dd>
+                </dl>
             @endcomponent
+
+            @component('components.card')
+            <h4 class="font-weight-bold mb-3 ">Préférences</h4>
+            <dl class="d-flex py-2 m-2 border-bottom">
+                <dt class="w-50">Type de Transmission du voiture </dt>
+                <dd>{{ $user->car_transmission }}</dd>
+            </dl>
+            <dl class="d-flex py-2 m-2 border-bottom">
+                <dt class="w-50">Type de carburant du voiture</dt>
+                <dd>{{ $user->car_carburant }}</dd>
+            </dl>
+            <dl class="d-flex py-2 m-2 border-bottom">
+                <dt class="w-50">type de siège d'aviation </dt>
+                <dd>{{ $user->flight_seat }}</dd>
+            </dl>
+            <dl class="d-flex py-2 m-2">
+                <dt class="w-50">Est gold client chez Hertz?</dt>
+                <dd>{{ $user->flight_seat? "Oui" : "Non" }}</dd>
+            </dl>
+        @endcomponent
 
             @component('components.card', [
                 'border' => 'danger'
             ])
                 <h4 class="font-weight-bold mb-3">Password</h4>
                 <p>Remplire les Champs pour chnager le Mot de Pass.</p>
-                <form class="overflow-hidden mb-2">
+                <form class="overflow-hidden mb-2" action="/profile/changePassword" method="POST">
                     <div class="form-group row border-bottom pb-3">
                         <label for="staticEmail" class="col-sm-2 col-form-label">Ancient</label>
                         <div class="col-sm-10">
-                            <input type="password" class="form-control" placeholder="Ancient Mot de Pass">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
+                            <input type="password" name="curPassword" class="form-control" placeholder="Ancient Mot de Pass">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="staticEmail" class="col-sm-2 col-form-label">Nouveau</label>
                         <div class="col-sm-10">
-                            <input type="password" class="form-control" placeholder="Nouveau Mot de Pass">
+                            <input type="password" name="newPassword" class="form-control" placeholder="Nouveau Mot de Pass">
                         </div>
                     </div>
                     <div class="form-group row">
