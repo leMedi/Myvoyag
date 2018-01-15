@@ -62,12 +62,19 @@ Route::post('/sites/{site}', 'SiteController@update');
 Route::post('/sites', 'SiteController@store');
 Route::delete('/sites/{site}', 'SiteController@destroy');
 
+
+
 /* Users */
 
 Route::get('/users', 'UserController@index');
 Route::get('/users/{user}', 'UserController@show');
 Route::get('/users/edit/{user}', 'UserController@edit');
 Route::post('/users/{user}', 'UserController@update');
+Route::get('/useradd', 'UserController@userAdd');
 Route::post('/users', 'UserController@store');
 Route::delete('/users/{user}', 'UserController@destroy');
+
+
+Route::get('/useradd/listResponsable/','UserController@listResponsable');
+Route::get('/useradd/listDirecteur/','UserController@listDirecteur');
 
