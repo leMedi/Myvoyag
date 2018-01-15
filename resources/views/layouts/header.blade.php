@@ -7,13 +7,26 @@
 		<span class="navbar-toggler-icon"></span>
 	</button>
 
-	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+	<div class="collapse navbar-collapse ml-2" id="navbarSupportedContent">
 		<ul class="navbar-nav mr-auto">
-			<li class="nav-item active">
-				<a class="nav-link" href="#">Acceuil
+			<li class="nav-item ">
+				<a class="nav-link {{$_SERVER['REQUEST_URI'] == '/' ? 'active-header' : ''}}  " href="{{ url('/') }}">Acceuil
 					<span class="sr-only">(current)</span>
 				</a>
 			</li>
+			@if(Auth::user()->type == 'admin')
+				<li class="nav-item ">
+					<a class="nav-link {{$_SERVER['REQUEST_URI'] == '/hotels' ? 'active-header' : ''}} " href="{{ url('/hotels') }}">Hotels <span class="sr-only">(current)</span></a>
+				</li>
+
+				<li class="nav-item ">
+					<a class="nav-link {{$_SERVER['REQUEST_URI'] == '/sites' ? 'active-header' : ''}} " href="{{ url('/sites') }}">Sites <span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item ">
+					<a class="nav-link {{$_SERVER['REQUEST_URI'] == '/users' ? 'active-header' : ''}} " href="{{ url('/users') }}">Utilisateurs <span class="sr-only">(current)</span></a>
+				</li>
+			@endif
+
 		</ul>
 		<form class="form-inline my-2 my-lg-0">
 			<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -24,11 +37,10 @@
 				<img class="avatar rounded-circle" src="/uploads/avatars/{{ Auth::user()->avatar }}" alt="">
 			</a>
 				<div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdwonMenuAvatar">
-				<a class="dropdown-item" href="#">Action</a>
-				<a class="dropdown-item" href="#">Another</a>
+				<a class="dropdown-item" href="{{ url('/profile') }}">Profile</a>
 				<a href="{{ route('logout') }}"
 				onclick="event.preventDefault();
-				document.getElementById('logout-form').submit();"  class="dropdown-item">logout</a>
+				document.getElementById('logout-form').submit();"  class="dropdown-item">Deconnecter</a>
 				<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
 				{{ csrf_field() }}
 				</form>
