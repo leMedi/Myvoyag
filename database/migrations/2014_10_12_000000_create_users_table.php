@@ -36,7 +36,7 @@ class CreateUsersTable extends Migration
             $table->string('departement')->nullable();
             $table->string('code_imputation')->nullable();
             $table->string('code_etablissement')->nullable();
-            $table->integer('site_id')->unsigned()->nullable();
+            // $table->integer('site_id')->unsigned()->nullable();
             $table->integer('responsable')->unsigned()->nullable();
 
             $table->enum('car_transmission', ['automatic', 'manuel'])->nullable();
