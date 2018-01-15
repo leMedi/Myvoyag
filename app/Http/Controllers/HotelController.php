@@ -127,13 +127,13 @@ class HotelController extends Controller
             'price'     => 'required|min:0',
         ]);
 
-        $hotel->name = Input::get('name');
-        $hotel->tel = Input::get('tel');
-        $hotel->rating = Input::get('rating');
+        $hotel->name    = Input::get('name');
+        $hotel->tel     = Input::get('tel');
+        $hotel->rating  = Input::get('rating');
         $hotel->country = Input::get('country');
-        $hotel->city = Input::get('city');
+        $hotel->city    = Input::get('city');
         $hotel->address = Input::get('address');
-        $hotel->price = Input::get('price');
+        $hotel->price   = Input::get('price');
         
         if($request->has('with_food'))
             $hotel->with_food = true;

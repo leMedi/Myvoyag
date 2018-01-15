@@ -12,5 +12,6 @@ let mix = require('laravel-mix');
  */
 
 mix.js('resources/assets/js/app.js', 'public/js').extract(['vue', 'axios', 'lodash', 'jquery', 'bootstrap'])
+    .js('resources/assets/js/skypicker.js', 'public/js')
     .sass('resources/assets/sass/bootstrap4.scss', 'public/css/bootstrap.css')
     .sass('resources/assets/sass/app.scss', 'public/css/app.css');

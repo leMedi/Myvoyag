@@ -11,13 +11,16 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        $this->call(HotelsTableSeeder::class);
+        $this->call(SitesTableSeeder::class);
+        
         DB::table('users')->insert([
             'firstname'              => 'achraf',
             'lastname'               => 'jacobi',
             'date_naissance'         => '1996-10-08',
             'tel'                    => '0699998775',
             'email'                  => 'achraf@jacobi.com',
-            'password'               => bcryptex('hello'),
+            'password'               => bcrypt('hello'),
             'passport'               => '12SD48483 1',
             'passport_expMonth'      => '05',
             'passport_expYear'       => '2060',
@@ -59,8 +62,6 @@ class DatabaseSeeder extends Seeder
             'flight_seat'            => 'hublot',
         ]);
         
-        $this->call(HotelsTableSeeder::class);
-        $this->call(SitesTableSeeder::class);
 
     }
 }

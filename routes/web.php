@@ -13,6 +13,40 @@
 
 Route::get('/', 'HomeController@index');
 
+// Route::get('/demandes', function(){
+//     return view('demandes.new');
+// });
+
+// Route::get('/demandes/step/1', function(){
+//     return view('demandes.step1');
+// });
+
+// Route::get('/demandes/step/2', function(){
+//     return view('demandes.step2', [
+//         'user' => Auth::user()
+//     ]);
+// });
+/////////
+//= Demande
+/////
+
+Route::get('/demande/show/{id}', 'DemandeController@show'); // @TODO
+Route::get('/demande/create', 'DemandeController@store');
+
+// Route::get('/demande/new/{id}', 'DemandeController@edit');
+Route::get('/demande/new/{demande}/step1', 'DemandeController@step1');
+Route::post('/demande/new/{demande}/step1', 'DemandeController@saveStep1');
+Route::get('/demande/new/{demande}/step2', 'DemandeController@step2');
+Route::get('/demande/new/{demande}/step3', 'DemandeController@step3');
+
+Route::post('/demande/new/{demande}/saveTicket', 'DemandeController@saveTicket');
+
+/* Tasks */
+Route::post('/demande/task/{id}', 'TaskController@store'); // add task to travel demande
+Route::delete('/tasks/{task}', 'TaskController@destroy');
+// Route::delete('/tasks', 'TaskController@destroy');
+
+
 /////////
 //= Admin
 /////
@@ -44,7 +78,6 @@ Auth::routes();
 Route::get('/users', 'UserController@index');
 
 /* Profile */
-
 Route::get('/profile', 'UserController@profile');
 Route::post('/profile/changePassword','UserController@changePassword');
 Route::post('/profile/avatar','UserController@updateAvatar');
@@ -54,7 +87,6 @@ Route::post('/profile/update', 'UserController@updateProfile');
 
 
 /* Sites */
-
 Route::get('/sites', 'SiteController@index');
 Route::get('/sites/{site}', 'SiteController@show');
 Route::get('/sites/edit/{site}', 'SiteController@edit');
@@ -63,11 +95,14 @@ Route::post('/sites', 'SiteController@store');
 Route::delete('/sites/{site}', 'SiteController@destroy');
 
 /* Users */
-
 Route::get('/users', 'UserController@index');
 Route::get('/users/{user}', 'UserController@show');
 Route::get('/users/edit/{user}', 'UserController@edit');
 Route::post('/users/{user}', 'UserController@update');
 Route::post('/users', 'UserController@store');
 Route::delete('/users/{user}', 'UserController@destroy');
+
+
+
+
 

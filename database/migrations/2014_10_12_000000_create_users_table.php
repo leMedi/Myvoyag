@@ -36,7 +36,7 @@ class CreateUsersTable extends Migration
             $table->string('departement');
             $table->string('code_imputation');
             $table->string('code_etablissement');
-            $table->integer('site_id')->unsigned();
+            // $table->integer('site_id')->unsigned();
             $table->integer('responsable')->unsigned();
 
             $table->enum('car_transmission', ['automatic', 'manuel']);
@@ -48,8 +48,8 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
 
-            $table->foreign('responsable')->references('id')->on('users');
-            $table->foreign('site_id')->references('id')->on('sites');
+            // $table->foreign('responsable')->references('id')->on('users');
+            // $table->foreign('site_id')->references('id')->on('sites');
             
         });
     }

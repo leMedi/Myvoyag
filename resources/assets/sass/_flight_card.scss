@@ -1,0 +1,94 @@
+.flight-card {
+    border: 1px solid #e6eaee;
+    border-radius: 4px;
+    background-color: #fff;
+    height: 215px;
+    opacity: 0.8;
+    width: 100%;
+    position: relative;
+
+    &:hover {
+        opacity: 1;
+        border: 2px solid #2ea1f8;
+    }
+
+    &.ticket-selected {
+        border: 2px solid #886ce6!important;
+        opacity: 1;
+    }
+
+    &.ticket-selected::after {
+        content: ' ';
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 80px 80px 0;
+        border-color: transparent #896ce6 transparent transparent;
+        top: 0;
+        right: 0;
+        position: absolute;
+    }
+    .card-icon {
+        width: 60px;
+        height: 60px;
+        margin-right: 1.25rem;
+        border-radius: 100%;
+        background-color: #b7c0cd;
+        color: #fff;
+        font-size: 28rem;
+        text-align: center;
+        display: inline-block;
+    }
+
+    .card-icon i {
+        font-size: 40px;
+        padding: 8px 0 0 2px;
+    }
+
+    .card-content {
+        padding: 30px;
+        display: inline-block;
+        max-width: calc(100% - 150px);
+        // width: calc(100% - 155px);
+        // height: 100%;
+        // overflow-y: scroll;
+    }
+
+    .price {
+        float: left;
+        padding: 80px 0;
+        text-align: center;
+        width: 150px;
+        height: 100%;
+        background: #e6eaee;
+    }
+
+    .flight-price {
+        margin: 0;
+        font-size: 30px;
+        font-weight: 400;
+    }
+
+    .departure, .arrival {
+        width: 100%;
+    }
+
+    .departure {
+        padding-bottom: 15px;
+        margin-bottom: 15px;
+        border-bottom: 1px dashed #e6eaee;
+    }
+
+    .stops {
+        display: inline-block;
+        // background: #e6eaee;
+        padding: 1px 5px;
+        border-left: 2px dashed #e6eaee;
+        // width: calc(100% - 340px);
+    }
+
+    .stop {
+        padding: 5px;
+        display: inline-block;
+    }
+}
