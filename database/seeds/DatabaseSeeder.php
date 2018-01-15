@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
             'date_naissance'         => '1996-10-08',
             'tel'                    => '0699998775',
             'email'                  => 'achraf@jacobi.com',
-            'password'               => bcryptex('hello'),
+            'password'               => bcrypt('hello'),
             'passport'               => '12SD48483 1',
             'passport_expMonth'      => '05',
             'passport_expYear'       => '2060',
