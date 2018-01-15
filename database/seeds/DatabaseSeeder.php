@@ -11,6 +11,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        $this->call(HotelsTableSeeder::class);
+        $this->call(SitesTableSeeder::class);
+        
         DB::table('users')->insert([
             'firstname'              => 'achraf',
             'lastname'               => 'jacobi',
@@ -59,8 +62,6 @@ class DatabaseSeeder extends Seeder
             'flight_seat'            => 'hublot',
         ]);
         
-        $this->call(HotelsTableSeeder::class);
-        $this->call(SitesTableSeeder::class);
 
     }
 }

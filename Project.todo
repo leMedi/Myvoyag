@@ -71,6 +71,18 @@ Sites:
   ✔ show @done(18-01-13 16:11)
   ✔ delete @done(18-01-13 16:11)
 
+Tasks:
+  ☐ add
+  ☐ delete
+  demande:
+    ☐ 'fin' input can be empty @high 
+    ☐ better ui date elements
+    ☐ auto increment 'fin' input when 'debut" catch up @low
+  
+flight card:
+  ☐ show info (price, from,airoport, to, airoport, distance, duration go, duration back, time)
+  ☐ icons
+
 Voiture:
   ☐ schema
   ☐ table

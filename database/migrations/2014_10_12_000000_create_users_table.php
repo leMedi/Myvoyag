@@ -48,8 +48,8 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
 
-            $table->foreign('responsable')->references('id')->on('users');
-            $table->foreign('site_id')->references('id')->on('sites');
+            // $table->foreign('responsable')->references('id')->on('users');
+            // $table->foreign('site_id')->references('id')->on('sites');
             
         });
     }

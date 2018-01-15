@@ -17,7 +17,31 @@ a.text-dark:hover {
     text-decoration: underline;    
 }
 
+.twitter-typeahead {
+    display: block!important;
+}
 
+////////
+//= Bg Colors
+.bg-info {
+    background: #2ea1f8;
+    background: linear-gradient(180deg,#2ea1f8,#1990ea);
+}
+
+.bg-success {
+    background: #39b54a;
+    background: linear-gradient(180deg,#39b54a,#34aa44);
+}
+
+.bg-warning {
+    background: #fd9a18;
+    background: linear-gradient(180deg,#fd9a18,#f16911);
+}
+
+.bg-fancy {
+    background: #886ce6;
+    background: linear-gradient(180deg,#886ce6,#7d5be2);
+}
 
 ////////
 //= Helpers
@@ -102,6 +126,7 @@ a.text-dark:hover {
 @import 'header';
 @import 'landing_card';
 @import 'travel_card';
+@import 'flight_card';
 @import 'login';
 @import 'sidebar_1';
 @import 'table';
