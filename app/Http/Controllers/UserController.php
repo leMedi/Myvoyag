@@ -33,7 +33,7 @@ class UserController extends Controller
     public function profile()
     {
         $user = Auth::user();
-        return view('profile', [
+        return view('user.profile', [
             'user'       => $user,
             'creditCard' => $user->creditCard
         ]);
@@ -87,7 +87,7 @@ class UserController extends Controller
     public function edit(User $user)
     {       
 
-        return view('user.user_edit', [
+        return view('admin.user_edit', [
             'user' => $user
         ]);
     }
@@ -96,7 +96,9 @@ class UserController extends Controller
 
     public function updateProfile(Request $request)
     {
-        return $this->update($request, Auth::user());
+        $this->update($request, Auth::user());
+        
+        return redirect('/profile');
     }
 
     public function update(Request $request, User $user)
@@ -109,6 +111,7 @@ class UserController extends Controller
                 'lastName'               =>     'required',
                 'tel'                    =>     'required|numeric',
                 'email'                  =>     'required|max:30',
+                'date_naissance'         =>     'required',
                 'passport'               =>     'required|max:30',
                 'passport_expMonth'      =>     'required|numeric',
                 'passport_expYear'       =>     'required|numeric',
@@ -127,6 +130,7 @@ class UserController extends Controller
         $user->lastName = Input::get('lastName');
         $user->tel = Input::get('tel');
         $user->email = Input::get('email');
+        $user->date_naissance= Input::get('date_naissance');
         $user->passport = Input::get('passport');
         $user->passport_expMonth = Input::get('passport_expMonth');
         $user->passport_expYear = Input::get('passport_expYear');
@@ -142,7 +146,7 @@ class UserController extends Controller
         
         $user->save();
         
-        return redirect('/profile');
+        return redirect('/users/' . $user->id);
     }
 
     public function show(User $user)
@@ -152,4 +156,57 @@ class UserController extends Controller
             'creditCard' => $user->creditCard
         ]);
     }
+
+    public function userAdd()
+    {
+        return view('admin.user_add',[
+            'users' => User::all(),
+        ]);
+    }
+
+    public function store(Request $request)
+    {   
+
+        $validator = request()->validate(
+        [
+            'firstName'              =>     'required|max:30',
+            'lastName'               =>     'required|max:30',
+            'email'                  =>     'required|max:30',
+            'password'               =>     'required|min:3|confirmed',
+            'password_confirmation'  =>     'required|min:3',
+        ]);
+
+        $user = new User;
+
+        $user->firstName = Input::get('firstName');
+        $user->lastName = Input::get('lastName');
+        $user->email = Input::get('email');
+        $user->type = Input::get('type');
+        $user->password = bcrypt(Input::get('password'));
+
+        $user->save();
+        return redirect('/users');
+    }
+
+    public function destroy(User $user)
+    {
+        $user->delete();
+        return redirect('/users');
+    }
+    
+
+    public function listResponsable()
+    {
+        $users =User::where('type', 'responsable')->get();
+        return $users;
+
+    }
+
+
+    public function listDirecteur()
+    {
+        $users =User::where('type', 'directeur')->get();
+        return $users;
+    }
+
 }
