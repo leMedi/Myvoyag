@@ -148,7 +148,6 @@
                             </button>
 
                             <div class="dropdown-menu dropdown-menu-right">
-                                <button class="dropdown-item" type="button">Modifier</button>
                                 <button class="dropdown-item" data-id="{{ $hotel->id }}" data-name="{{ $hotel->name }}" data-toggle="modal" data-target="#deleteHotelModal" type="button">Supprimer</button>
                             </div>
                         </div>
@@ -192,22 +191,30 @@
 <script>
     $('#hotels tr').click(function (e){
         // e.preventDefault();
-        event.stopPropagation();
+        //event.stopPropagation();
         $this = $(this);
 
         id = $this.data('id');
-
+        console.log(id);
         location.href = "{{ url('/hotels') }}/" + id;
     });
 
-    $('#deleteHotelModal').on('show.bs.modal', function (event) {
-        let button = $(event.relatedTarget); // Button that triggered the modal
-        let hotelName = button.data('name'); // Extract info from data-* attributes
-        let hotelID = button.data('id'); // Extract info from data-* attributes
+    $deleteModal = $('#deleteHotelModal');
+    $('#hotels tr button').on('click', function (e){
+        event.stopPropagation();
+        $this = $(this);
+        if($this.data('toggle') == 'dropdown')
+            $this.next().toggle();
+        else if($this.data('toggle') == 'modal'){
 
-        let modal = $(this)
-        modal.find('.modal-body .msg').html("Voulez vous vraiment supprimer l'hotel<br><b>'" + hotelName + "'</b>.");
-        modal.find('.modal-footer form').attr('action', "{{ url('/hotels') }}/" + hotelID);
+            let hotelName   = $this.data('name'); // Extract info from data-* attributes
+            let hotelID     = $this.data('id'); // Extract info from data-* attributes
+
+            $deleteModal.find('.modal-body .msg').html("Voulez vous vraiment supprimer l'hotel<br><b>'" + hotelName + "'</b>.");
+            $deleteModal.find('.modal-footer form').attr('action', "{{ url('/hotels') }}/" + hotelID);
+
+            $deleteModal.modal('show');
+        }
     });
 </script>
     
