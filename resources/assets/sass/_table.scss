@@ -13,6 +13,8 @@
 		border-radius: 4px;
 		background-color: #fff;
 		border-collapse: collapse;
+		table-layout: fixed;
+    	width: 100%;
 	}
 
 	.c-table__row {
@@ -26,8 +28,10 @@
 	    font-size: .875rem;
 	    font-weight: 500;
 	    text-align: left;
-	    white-space: nowrap;
-	    vertical-align: middle;
+	    // white-space: nowrap;
+		vertical-align: middle;
+		word-wrap: break-word;
+    	overflow: hidden;
 	}
 
 	.c-table__cell--head {
