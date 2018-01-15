@@ -17,33 +17,33 @@ class CreateUsersTable extends Migration
             $table->increments('id');
             $table->string('firstName');
             $table->string('lastName');
-            $table->date('date_naissance');
-            $table->string('tel');
+            $table->date('date_naissance')->nullable();
+            $table->string('tel')->nullable();
             $table->string('avatar')->default('default.jpg');
             
             $table->string('email')->unique();
             $table->string('password');
             
-            $table->string('passport');
-            $table->unsignedTinyInteger('passport_expMonth');
-            $table->unsignedSmallInteger('passport_expYear');
+            $table->string('passport')->nullable();
+            $table->unsignedTinyInteger('passport_expMonth')->nullable();
+            $table->unsignedSmallInteger('passport_expYear')->nullable();
             
-            $table->string('cin')->unique();
-            $table->unsignedTinyInteger('cin_valideMonth');
-            $table->unsignedSmallInteger('cin_valideYear');
+            $table->string('cin')->unique()->nullable();
+            $table->unsignedTinyInteger('cin_valideMonth')->nullable();
+            $table->unsignedSmallInteger('cin_valideYear')->nullable();
             
             $table->enum('type', ['salarier', 'responsable', 'gestionnaire', 'directeur','admin']);
-            $table->string('departement');
-            $table->string('code_imputation');
-            $table->string('code_etablissement');
-            $table->integer('site_id')->unsigned();
-            $table->integer('responsable')->unsigned();
+            $table->string('departement')->nullable();
+            $table->string('code_imputation')->nullable();
+            $table->string('code_etablissement')->nullable();
+            $table->integer('site_id')->unsigned()->nullable();
+            $table->integer('responsable')->unsigned()->nullable();
 
-            $table->enum('car_transmission', ['automatic', 'manuel']);
-            $table->enum('car_carburant', ['gazoil', 'escence']);
+            $table->enum('car_transmission', ['automatic', 'manuel'])->nullable();
+            $table->enum('car_carburant', ['gazoil', 'escence'])->nullable();
             $table->boolean('est_goldClient')->default(false);
             
-            $table->enum('flight_seat', ['hublot', 'couloir']);
+            $table->enum('flight_seat', ['hublot', 'couloir'])->nullable();
 
             $table->rememberToken();
             $table->timestamps();
