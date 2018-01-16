@@ -79,6 +79,10 @@ class CreateDemandesTable extends Migration
             $table->string('a_lieu_restitution')->nullable();
             $table->time('a_heure_restitution')->nullable();
 
+            // verification
+            $table->enum('approved', ['none', 'responsable', 'directeur'])->default('none');
+            $table->unsignedSmallInteger('nbr_personnes')->default(1);
+
             $table->timestamps();
         });
     }
