@@ -34,7 +34,7 @@
         <div class="row">
             <div class="col-sm-12 col-lg-4 mb-4">
                 @component('components.landing_card', [
-                    'action_text'   => 'saisir une demande',
+                    'action_text'   => 'Saisir une Demande',
                     'border'        => '',
                     'btn_classe'     => 'btn-primary',
                     'action_link'   => '/demande/create',
@@ -46,7 +46,7 @@
 
             <div class="col-sm-12 col-lg-4 mb-4">
                 @component('components.landing_card', [
-                    'action_text'   => 'acceder au liste',
+                    'action_text'   => 'Acceder au Liste',
                     'border'        => '',
                     'btn_classe'     => 'btn-primary',
                     'action_link'   => '/demandes',
