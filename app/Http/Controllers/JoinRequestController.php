@@ -23,7 +23,7 @@ class JoinRequestController extends Controller
 
         // TODO: send mail
         Mail::send('mail.join', [
-            'title'     => 'Approver Demande' . $demande->owner->fullname(),
+            'title'     => 'Approver Demande de ' . $demande->owner->fullname(),
             'content'   => 'Bonjour '.$demande->owner->firstName.', <br>C’est '.$user->fullname().'.J’ai vu que tu pars à '.$demande->destinationSite->name.' du '.$demande->departure_date.' au '.$demande->return_date.', puis je partir avec toi ? ',
             'actionMsg' => 'Accepter',
             'actionUrl' => url('/demande/request/'.$joinRequest->id.'/approve'),
