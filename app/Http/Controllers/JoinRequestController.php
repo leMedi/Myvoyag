@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\JoinRequest;
 use App\Demande;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
+// use Illuminate\Mail\Mailer;
 
 use Illuminate\Http\Request;
 
@@ -14,21 +17,20 @@ class JoinRequestController extends Controller
     {
         $user = Auth::User();
         $joinRequest = new JoinRequest();
-        $joinRequest->demande_id = $demnade->id;
-        $joinRequest->user_id = $Auth::id();
+        $joinRequest->demande_id = $demande->id;
+        $joinRequest->user_id = Auth::id();
         $joinRequest->save();
 
         // TODO: send mail
         Mail::send('mail.join', [
             'title'     => 'Approver Demande' . $demande->owner->fullname(),
-            'content'   => 'Bonjour '.$demande->owner->firstName.', <br>C’est '.$user->fullname().'.J’ai vu que tu pars à '.$demnade->destinationSite->name.' du '.$demande->departure_date.' au '.$demande->return_date.', puis je partir avec toi ? ',
+            'content'   => 'Bonjour '.$demande->owner->firstName.', <br>C’est '.$user->fullname().'.J’ai vu que tu pars à '.$demande->destinationSite->name.' du '.$demande->departure_date.' au '.$demande->return_date.', puis je partir avec toi ? ',
             'actionMsg' => 'Accepter',
             'actionUrl' => url('/demande/request/'.$joinRequest->id.'/approve'),
         ], 
-        function ($message)
+        function ($message) use ($demande)
         {
-
-            $message->from($user->email, $user->fullname());
+            $message->from(Auth::User()->email, Auth::User()->fullname());
             $message->to($demande->owner->email);
 
         });

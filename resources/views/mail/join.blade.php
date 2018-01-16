@@ -148,7 +148,7 @@
                         <table border="0" cellspacing="0" cellpadding="0">
                           <tr>
                               @if (isset($actionMsg))
-                              <td align="center" style="border-radius: 3px;" bgcolor="#2ea1f8"><a href="{{$actionUrl}}" target="_blank" style="font-size: 18px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #ffffff; text-decoration: none; padding: 12px 50px; border-radius: 2px; border: 1px solid #1a91eb; display: inline-block;">{{actionMsg}}</a></td>
+                              <td align="center" style="border-radius: 3px;" bgcolor="#2ea1f8"><a href="{{$actionUrl}}" target="_blank" style="font-size: 18px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #ffffff; text-decoration: none; padding: 12px 50px; border-radius: 2px; border: 1px solid #1a91eb; display: inline-block;">{{$actionMsg}}</a></td>
                               @endif
                           </tr>
                         </table>
