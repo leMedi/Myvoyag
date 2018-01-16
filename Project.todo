@@ -34,7 +34,7 @@ Credit Card: @low
   ✔ delete @done(18-01-12 11:27)
   ✔ view @done(18-01-12 11:28)
   ☐ logos for mastercard, cih ....
-  ☐ auth protect @critical
+  ✔ auth protect @critical @done(18-01-16 13:04)
   ☐ fix001
 
 Hotels:
@@ -72,16 +72,16 @@ Sites:
   ✔ delete @done(18-01-13 16:11)
 
 Tasks:
-  ☐ add
-  ☐ delete
+  ✔ add @done(18-01-16 13:03)
+  ✔ delete @done(18-01-16 13:03)
   demande:
-    ☐ 'fin' input can be empty @high 
-    ☐ better ui date elements
-    ☐ auto increment 'fin' input when 'debut" catch up @low
+    ✔ 'fin' input can be empty @high @done(18-01-16 13:03)
+    ✔ better ui date elements @done(18-01-16 13:03)
+    ✔ auto increment 'fin' input when 'debut" catch up @low @done(18-01-16 13:03)
   
 flight card:
-  ☐ show info (price, from,airoport, to, airoport, distance, duration go, duration back, time)
-  ☐ icons
+  ✔ show info (price, from,airoport, to, airoport, distance, duration go, duration back, time) @done(18-01-16 13:03)
+  ✔ icons @done(18-01-16 13:04)
 
 Voiture:
   ☐ schema
