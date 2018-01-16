@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Demande;
 use App\Site;
+use App\Hotel;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
@@ -27,7 +28,7 @@ class DemandeController extends Controller
         $demande->destination_site_id = Input::get('site_to');
 
         // departure
-        $demande->fight_departure_end_airport   = Input::get('departure')["endAirport"];
+        // $demande->fight_departure_end_airport   = Input::get('departure')["endAirport"];
         
 
         $demande->fight_departure_start_airport = Input::get('departure')["startAirport"];
@@ -134,6 +135,75 @@ class DemandeController extends Controller
             'sites'     => Site::all(),
             'demande'   => $demande
         ]);
+    }
+
+    public function step3(Demande $demande)
+    {
+        return view('demandes.step3', [
+            'user'      => Auth::user(),
+            'hotels'     => Hotel::all(),
+            'demande'   => $demande
+        ]);
+    }
+
+    public function saveStep3(Demande $demande)
+    {
+        $demande->hotel_id = Input::get('hotel_id');
+        $demande->save();
+
+        return redirect('demande/new/' . $demande->id . '/step4');
+    }
+
+
+    public function step4(Demande $demande)
+    {
+        return view('demandes.step4', [
+            'user'      => Auth::user(),
+            'demande'   => $demande
+        ]);
+    }
+
+    public function saveStep4(Demande $demande, Request $request)
+    {
+        $validator = request()->validate(
+        [   
+            //start
+            's_lieu_livraison' => 'required',
+            's_heure_livraison' => 'required',
+            's_lieu_restitution' => 'required',
+            's_heure_restitution' => 'required',
+
+            // end
+            'e_lieu_livraison' => 'required',
+            'e_heure_livraison' => 'required',
+            'e_lieu_restitution' => 'required',
+            'e_heure_restitution' => 'required',
+
+            // arrival
+            'a_lieu_livraison' => 'required',
+            'a_heure_livraison' => 'required',
+            'a_lieu_restitution' => 'required',
+            'a_heure_restitution' => 'required',
+        ]);
+
+        $demande->s_lieu_livraison = Input::get('s_lieu_livraison');
+        $demande->s_heure_livraison = Input::get('s_heure_livraison');
+        $demande->s_lieu_restitution = Input::get('s_lieu_restitution');
+        $demande->s_heure_restitution = Input::get('s_heure_restitution');
+
+        $demande->e_lieu_livraison = Input::get('e_lieu_livraison');
+        $demande->e_heure_livraison = Input::get('e_heure_livraison');
+        $demande->e_lieu_restitution = Input::get('e_lieu_restitution');
+        $demande->e_heure_restitution = Input::get('e_heure_restitution');
+
+        $demande->a_lieu_livraison = Input::get('a_lieu_livraison');
+        $demande->a_heure_livraison = Input::get('a_heure_livraison');
+        $demande->a_lieu_restitution = Input::get('a_lieu_restitution');
+        $demande->a_heure_restitution = Input::get('a_heure_restitution');
+
+        $demande->save();
+
+        return redirect('/');
     }
 
     /**
