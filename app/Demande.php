@@ -20,4 +20,9 @@ class Demande extends Model
     {
         return $this->belongsTo('App\Site', 'destination_site_id');
     }
+
+    public function owner()
+    {
+        return $this->belongsTo('App\User', 'user_id');
+    }
 }
