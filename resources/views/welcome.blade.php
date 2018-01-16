@@ -7,7 +7,7 @@
     <div class="row my-5">
         <div class="col-12">
             <div class="my-5 text-center">
-                <h2 class="mb-3">Hi {{ Auth::user()->lastName }}! Bienvenue dans l' Acceuille.</h2>
+                <h2 class="mb-3">Hi {{$user->lastName }}! Bienvenue dans l' Acceuille.</h2>
             </div>
         </div>
     </div> <!-- .row -->
@@ -61,7 +61,7 @@
                     'action_text'   => 'Start using Dashboard',
                     'border'        => '',
                         'btn_classe'     => 'btn-primary',
-                    'action_link'   => '#',
+                    'action_link'   => '/avalider',
                     'img'           => asset('imgs/icon-intro1.svg')
                     ])
                     Voir Notification <br>
@@ -69,9 +69,58 @@
                 @endcomponent
             </div>
         </div> <!-- .row -->
-        
-    @endif
+        <div id="table">
+                <div class="row mb-1">
+                        <div class="col-12">
+                            <div class="my-5 text-center">
+                                <h2 class="mb-1">Vos Demandes!</h2>
+                            </div>
+                        </div>
+                    </div> <!-- .row -->
+            <div class="row mb-5">
+                <div class="col-sm-12 mt-1">
+                    <table class="c-table">
+                        <thead>
+                            <tr class="c-table__row">
+                                <th class="c-table__cell c-table__cell--head">Ville Destination</th>
+                                <th class="c-table__cell c-table__cell--head">Site Destinantion</th>
+                                <th class="c-table__cell c-table__cell--head">Ville Depart</th>
+                                <th class="c-table__cell c-table__cell--head">Site Depart</th>
+                                <th class="c-table__cell c-table__cell--head">Date d'aller</th>
+                                <th class="c-table__cell c-table__cell--head">Date de retour</th>
+                                <th class="c-table__cell c-table__cell--head">Etat de demande</th>
+                            </tr>
+                        </thead>
+                        @foreach($demandes as $demande)
+                            <tbody>
+                                <tr class="c-table__row">
+                                    
+                                    <td class="c-table__cell">{{$demande->destinationSite->city}} </td>
+                                    
+                                    <td class="c-table__cell">{{$demande->destinationSite->name}} </td>
+                                    
+                                    <td class="c-table__cell">{{$demande->departureSite->city}} </td>
+                                    
+                                    <td class="c-table__cell">{{$demande->departureSite->name}} </td>
 
+                                    <td class="c-table__cell">{{$demande->departure_date}} </td>
+        
+                                    <td class="c-table__cell" >{{$demande->return_date}}</td>
+                                    @if($demande->approved == 'none' )
+                                        <td class="c-table__cell"> <h4> <span class="badge badge-danger">Non approuvé</span></h4></td>
+                                    @elseif($demande->approved == 'responsable')
+                                        <td class="c-table__cell badge badge-warning">Non approuvé</td>
+                                    @else                                    
+                                        <td class="c-table__cell "> <span class="badge badge-success">Approuvé</span> </td>
+                                    @endif
+                                </tr>
+                            </tbody>
+                        @endforeach
+                    </table>
+                </div>
+            </div>
+        </div>
+    @endif
 </div>
 
 @endsection
