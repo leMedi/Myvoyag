@@ -36,10 +36,16 @@ Route::get('/demande/create', 'DemandeController@store');
 // Route::get('/demande/new/{id}', 'DemandeController@edit');
 Route::get('/demande/new/{demande}/step1', 'DemandeController@step1');
 Route::post('/demande/new/{demande}/step1', 'DemandeController@saveStep1');
-Route::get('/demande/new/{demande}/step2', 'DemandeController@step2');
-Route::get('/demande/new/{demande}/step3', 'DemandeController@step3');
 
+Route::get('/demande/new/{demande}/step2', 'DemandeController@step2');
 Route::post('/demande/new/{demande}/saveTicket', 'DemandeController@saveTicket');
+
+Route::get('/demande/new/{demande}/step3', 'DemandeController@step3');
+Route::post('/demande/new/{demande}/step3', 'DemandeController@SaveStep3');
+
+Route::get('/demande/new/{demande}/step4', 'DemandeController@step4');
+Route::post('/demande/new/{demande}/step4', 'DemandeController@saveStep4');
+
 
 /* Tasks */
 Route::post('/demande/task/{id}', 'TaskController@store'); // add task to travel demande
