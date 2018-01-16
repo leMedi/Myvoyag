@@ -40,9 +40,9 @@ Route::delete('/tasks/{task}', 'TaskController@destroy');
 
 
 /*Request*/
-Route::get('/demande/request/create/{demande}', 'DemandeController@create');
-Route::get('/demande/request/{joinRequest}/approve', 'DemandeController@approve');
-Route::get('/demande/request/{joinRequest}/deny', 'DemandeController@deny');
+Route::get('/demande/request/create/{demande}', 'JoinRequestController@create');
+Route::get('/demande/request/{joinRequest}/approve', 'JoinRequestController@approve');
+Route::get('/demande/request/{joinRequest}/deny', 'JoinRequestController@deny');
 
 
 /////////
