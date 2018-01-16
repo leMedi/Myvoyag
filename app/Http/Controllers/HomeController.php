@@ -1,8 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\User;
+use App\Demande;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 
 class HomeController extends Controller
 {
@@ -22,7 +25,13 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return view('welcome');
+    {   
+        $user = Auth::user();
+        $demandes = Demande::where('user_id', $user->id)->get();
+        return view('welcome',  [
+            'user'     => $user,
+            'demandes' => $demandes,
+        ]);
     }
+
 }

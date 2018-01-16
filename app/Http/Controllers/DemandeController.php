@@ -19,7 +19,26 @@ class DemandeController extends Controller
      */
     public function index()
     {
-        return view('demandes.index');
+        return view('demandes.index', [
+            'demandes' => Demande::all(),
+        ]);
+    }
+
+    public function avalider()
+    {
+        $user = Auth::user();
+        $etat = 'none';
+
+        if($user->type == 'directeur')
+            $etat = 'responsable';
+        if($user->type == 'admin')
+            $demandes = Demande::all();
+        else
+            $demandes = Demande::where('approved', $etat)->get();
+
+        return view('demandes.avalider', [
+            'demandes' => $demandes,
+        ]);
     }
 
     public function saveTicket(Demande $demande, Request $request)

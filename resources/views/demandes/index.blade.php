@@ -10,7 +10,7 @@
                 <h2 class="mb-3">Bienvenue dans l' Acceuille des voyage organisés.</h2>
                 <p class="text-mute h6">
                     Veuillez choisir un voyage ou Remplir une nouvelle demande.
-                    <a href="">nouvelle demande!</a>
+                    <a href="{{url('/demande/create')}}">nouvelle demande!</a>
                 </p>
             </div>
         </div>
@@ -21,38 +21,23 @@
             <div class="col-lg-2"></div>
             <div class="col-lg-8">
                 <div class="row">
-                    <div class="col-sm-2 col-lg-4">
-                        @component('components.travel_card', [
-                            'bg'        => 'https://zawiastudio.com/dashboard/demo/img/candidate2.jpg',
-                            'avatar'    => 'https://zawiastudio.com/dashboard/demo/img/avatar-72.jpg',
-                            'location'  => 'Korea',
-                            'count'     => '3',
-                        ])
-                            Mathilda Campbell
-                        @endcomponent
-                    </div>
-            
-                    <div class="col-sm-2 col-lg-4">
-                        @component('components.travel_card', [
-                            'bg'        => 'https://zawiastudio.com/dashboard/demo/img/candidate2.jpg',
-                            'avatar'    => 'https://zawiastudio.com/dashboard/demo/img/avatar-72.jpg',
-                            'location'  => 'Korea',
-                            'count'     => '3',
-                        ])
-                            Mathilda Campbell
-                        @endcomponent
-                    </div>
-            
-                    <div class="col-sm-2 col-lg-4">
-                        @component('components.travel_card', [
-                            'bg'        => 'https://zawiastudio.com/dashboard/demo/img/candidate2.jpg',
-                            'avatar'    => 'https://zawiastudio.com/dashboard/demo/img/avatar-72.jpg',
-                            'location'  => 'Korea',
-                            'count'     => '3',
-                        ])
-                            Mathilda Campbell
-                        @endcomponent
-                    </div>
+                    @foreach($demandes as $demande)
+                        @if($demande->approved == 'directeur')
+                            <div class="col-sm-2 col-lg-4">
+                                @component('components.travel_card', [
+                                    'bg'        => 'https://zawiastudio.com/dashboard/demo/img/candidate2.jpg',
+                                    'dest'      => $demande->destinationSite->city,
+                                    'avatar'    => asset('/uploads/avatars/' . $demande->owner->avatar),
+                                    'arrive'    => $demande->departureSite->name,
+                                    'depart'    => $demande->destinationSite->name,
+                                    'date'      => $demande->departure_date,
+                                    'count'     => 5 - $demande->nbr_personnes,
+                                ])
+                                    Mathilda Campbell
+                                @endcomponent
+                            </div>
+                        @endif
+                    @endforeach
                 </div> <!-- .row -->
             </div>
             <div class="col-lg-2"></div>
