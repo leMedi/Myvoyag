@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'firstName','LastName', 'email', 'password', 'departement', 'type','numPass', 'tel',
+        'firstName','lastName', 'email', 'password', 'departement', 'type','numPass', 'tel',
     ];
 
     /**
@@ -39,5 +39,9 @@ class User extends Authenticatable
         return $this->belongsTo('App\Site');
     }
 
+    public function fullname()
+    {
+        return $this->firstName . ' ' . $this->lastName;
+    }
     //TODO: responsable function
 }
