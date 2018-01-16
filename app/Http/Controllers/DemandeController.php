@@ -225,6 +225,11 @@ class DemandeController extends Controller
         return redirect('/');
     }
 
+    public function prouver()
+    {
+        return view('admin.prouver');
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
