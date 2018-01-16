@@ -24,6 +24,7 @@
                     @foreach($demandes as $demande)
                         <div class="col-sm-2 col-lg-4">
                             @component('components.travel_card', [
+                                'lien'      => '/demande/request/create/' . $demande->id,
                                 'bg'        => 'https://zawiastudio.com/dashboard/demo/img/candidate2.jpg',
                                 'dest'      => $demande->destinationSite->city,
                                 'avatar'    => asset('/uploads/avatars/' . $demande->owner->avatar),

@@ -36,7 +36,7 @@
             </div>
         @else
         <div class="card-footer">
-            <a class="btn btn-primary" href="#">New Message</a>
+            <a class="btn btn-primary" href="{{ $lien }}">New Message</a>
             <div class="text-success pr-3">
                 {{ $count }} Place(s) Disponible
             </div>
