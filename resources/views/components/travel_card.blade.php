@@ -6,7 +6,7 @@
             <img class="avatar rounded-circle w-25" src="{{ $avatar }}" alt="">
             <div class="card-meta">
                 <h3>
-                    {{ $slot }}
+                    {{ $firstname }} {{$lastname}}
                     <span class="travel-country">
                         Destination : {{ $dest }}
                     </span>
