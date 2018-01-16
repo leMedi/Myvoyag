@@ -23,6 +23,9 @@ class CreateHotelsTable extends Migration
             $table->string('address')->nullable();
             $table->unsignedSmallInteger('price')->default(0);
             $table->boolean('with_food')->default(false);
+            $table->integer('site_id')->unsigned()->nullable();
+            $table->integer('distance')->default(0);
+
         });
     }
 

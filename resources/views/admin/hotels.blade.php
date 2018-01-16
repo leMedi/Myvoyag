@@ -10,7 +10,7 @@
         <form action="{{ url('/hotels') }}" method="POST">
             {{ csrf_field() }}
             <div class="form-row">
-                <div class="form-group col-md-5">
+                <div class="form-group col-md-6">
                     <label>Nom</label>
                     @if ($errors->has('name'))
                     <input name="name" value="{{ old('name') }}"  type="text" class="form-control is-invalid" placeholder="Hotel Farah">
@@ -19,7 +19,7 @@
                     <input name="name" value="{{ old('name') }}" type="text" class="form-control" placeholder="Hotel Farah">
                     @endif
                 </div> <!-- .form-group -->
-                <div class="form-group col-md-5">
+                <div class="form-group col-md-6">
                     <label>Contact</label>
                     @if ($errors->has('tel'))
                     <input name="tel" value="{{ old('tel') }}" type="number" class="form-control is-invalid" placeholder="+xxx-xxxxxxx">
@@ -28,15 +28,7 @@
                     <input name="tel" value="{{ old('tel') }}" type="number" class="form-control" placeholder="+xxx-xxxxxxx">
                     @endif
                 </div> <!-- .form-group -->
-                <div class="form-group col-md-2">
-                    <label>Etoiles</label>
-                    @if ($errors->has('rating'))
-                    <input name="rating" value="{{ old('rating', 3) }}" type="number" class="form-control is-invalid" placeholder="0">
-                    <div class="invalid-feedback">{{ $errors->first('rating') }}</div>
-                    @else
-                    <input name="rating" value="{{ old('rating', 3) }}" type="number" class="form-control" placeholder="0">
-                    @endif
-                </div> <!-- .form-group -->
+                
             </div> <!-- .from-row -->
             <div class="form-row">
                 <div class="form-group col-md-2">
@@ -69,7 +61,17 @@
             </div> <!-- .from-row -->
 
             <div class="form-row">
-                <div class="form-group col-md-5">
+                <div class="form-group col-md-4">
+                    <label>Etoiles</label>
+                    @if ($errors->has('rating'))
+                    <input name="rating" value="{{ old('rating', 3) }}" type="number" class="form-control is-invalid" placeholder="0">
+                    <div class="invalid-feedback">{{ $errors->first('rating') }}</div>
+                    @else
+                    <input name="rating" value="{{ old('rating', 3) }}" type="number" class="form-control" placeholder="0">
+                    @endif
+                </div> <!-- .form-group -->
+
+                <div class="form-group col-md-4">
                     <label>Prix Chambre</label>
                     @if ($errors->has('price'))
                     <input name="price" value="{{ old('price') }}" type="number" class="form-control is-invalid" placeholder="30">
@@ -78,7 +80,8 @@
                     <input name="price" value="{{ old('price') }}" type="number" class="form-control" placeholder="30">
                     @endif
                 </div> <!-- .form-group -->
-                <div class="form-group col-md-4">
+
+                <div class="form-group col-md-3 offset-md-1">
                     <label>Options</label>
                     <div class="form-check mt-1 ml-3">
                         <input name="with_food" class="form-check-input" type="checkbox" {{ old('with_food') ? 'checked' : '' }}>
@@ -87,9 +90,31 @@
                         </label>
                     </div> <!-- .form-check -->
                 </div> <!-- .form-group -->
-                <div class="col-md-3 pb-1">
-                    <button class="form-control btn btn-primary mt-4" type="submit">Ajouter</button>
+
+               
+            </div> <!-- .from-row -->
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label>Site</label>
+                    <select name="site_id" class="form-control">  
+                        @foreach($sites as $site)
+                            <option value="{{ $site->id }}">{{$site->name}}</option>
+                        @endforeach
+                    </select>
                 </div> <!-- .form-group -->
+
+                <div class="form-group col-md-4">
+                    <label>Distance</label>
+                    @if ($errors->has('distance'))
+                    <input name="distance" value="{{ old('distance') }}" type="text" class="form-control is-invalid" >
+                    <div class="invalid-feedback">{{ $errors->first('distance') }}</div>
+                    @else
+                    <input name="distance" value="{{ old('distance') }}" type="text" class="form-control" >
+                    @endif
+                </div> <!-- .form-group -->
+                <div class="col-md-3 pb-1 ml-5 mt-1">
+                        <button class="form-control btn btn-primary mt-4" type="submit">Ajouter</button>
+                    </div> <!-- .form-group -->
             </div> <!-- .from-row -->
         </form>
     @endcomponent
