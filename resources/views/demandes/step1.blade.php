@@ -12,7 +12,7 @@
     @endcomponent
     
     @component('components.card')
-    <form method="POST">
+    <form class="mb-5" method="POST">
         {{ csrf_field() }}
         <h2 class="font-weight-bold mb-4">Demande de Voyage</h2>
         
@@ -46,6 +46,8 @@
                 @endif
             </div>
         </div>
+        <button class="btn btn-primary float-right">Suivant</button>
+    </form>
         
         <h5 class="font-weight-bold mt-3 mb-3">L'Agenda de Visite</h5>
         <div class="px-3">
@@ -61,28 +63,26 @@
                 </thead>
                 <tbody id="tasks-list">
                     @foreach ($demande->tasks as $task)
-                        <tr id="task{{$task->id}}">
-                            <th scope="row">{{$task->date}}</th>
-                            <td>{{$task->start}}</td>
-                            <td>{{$task->end}}</td>
-                            <td>{{$task->name}}</td>
-                            <td class="text-center"><button class="del-task-btn btn btn-danger" data-id="{{$task->id}}">Supprimer</button></td>
-                        </tr>
+                    <tr id="task{{$task->id}}">
+                        <th scope="row">{{$task->date}}</th>
+                        <td>{{$task->start}}</td>
+                        <td>{{$task->end}}</td>
+                        <td>{{$task->name}}</td>
+                        <td class="text-center"><button class="del-task-btn btn btn-danger" data-id="{{$task->id}}">Supprimer</button></td>
+                    </tr>
                     @endforeach
-                    <tr id="form-row">
-                        <form id="task-form" action="">
+                    <form id="task-form" action="">
+                        <tr id="form-row">
                             <th scope="row"><input id="task-date" value="{{ date('Y-m-d') }}" name="date" type="date" class="form-control form-control-md"></th>
                             <th><input name="start" type="time" class="form-control form-control-md"></th>
                             <td><input name="end" type="time" class="form-control form-control-md"></td>
                             <td><input name="name" type="text" class="form-control form-control-md"></td>
                             <td class="text-center px-0"><button type="submit" class="btn btn-primary">Ajouter</button></td>
-                        </form>
-                    </tr>
+                        </tr>
+                    </form>
                 </tbody>
-            </table>
+                </table>
         </div>
-        <button class="btn btn-primary float-right">Suivant</button>
-    </form>
     @endcomponent
 </div>
 @endsection
@@ -115,6 +115,7 @@
 
         $taskFrom.on("submit", function(e) {
             e.preventDefault();
+            // e.stopPropagate();
 
             $.ajax({
                 type: 'POST',
