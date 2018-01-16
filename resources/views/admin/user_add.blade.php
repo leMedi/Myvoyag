@@ -15,7 +15,7 @@
             {{ csrf_field() }}
 
             <div class="form-group row ">
-                <div class="col-sm-6">
+                <div class="col-sm-4">
                     <label class="col-form-label">Prenom</label>
                     @if ($errors->has('firstName'))
                     <input name="firstName" type="text" class="form-control is-invalid" value="{{ old('name') }}">
@@ -24,7 +24,7 @@
                     <input name="firstName" type="text" class="form-control">
                     @endif
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-4">
                     <label class="col-form-label">Nom</label>
                     @if ($errors->has('lastName'))
                     <input name="lastName" type="text" class="form-control is-invalid" value="{{ old('name') }}">
@@ -33,6 +33,15 @@
                     <input name="lastName" type="text" class="form-control">
                     @endif
                 </div>
+                
+                <div class="form-group col-md-4 mt-2">
+                    <label>Site</label>
+                    <select name="site_id" class="form-control">  
+                        @foreach($sites as $site)
+                            <option value="{{ $site->id }}">{{$site->name}}</option>
+                        @endforeach
+                    </select>
+                </div> <!-- .form-group -->
             </div>
         
             <div class="form-group row mb-4">
