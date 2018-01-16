@@ -59,7 +59,26 @@ class CreateDemandesTable extends Migration
             
             
             // step 3
-            
+            $table->integer('hotel_id')->unsigned()->nullable();
+
+            // step 4
+            $table->string('s_lieu_livraison')->nullable();
+            $table->time('s_heure_livraison')->nullable();
+            $table->string('s_lieu_restitution')->nullable();
+            $table->time('s_heure_restitution')->nullable();
+
+
+            $table->string('e_lieu_livraison')->nullable();
+            $table->time('e_heure_livraison')->nullable();
+            $table->string('e_lieu_restitution')->nullable();
+            $table->time('e_heure_restitution')->nullable();
+
+
+            $table->string('a_lieu_livraison')->nullable();
+            $table->time('a_heure_livraison')->nullable();
+            $table->string('a_lieu_restitution')->nullable();
+            $table->time('a_heure_restitution')->nullable();
+
             $table->timestamps();
         });
     }
