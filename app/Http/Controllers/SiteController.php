@@ -79,7 +79,8 @@ class SiteController extends Controller
     public function show(Site $site)
     {
         return view('admin.site', [
-            'site' => $site
+            'site'   => $site,
+            'hotels' => $site->hotels,
         ]);
     }
 
