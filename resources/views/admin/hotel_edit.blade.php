@@ -101,6 +101,34 @@
                 </div>
             </div>
 
+            
+
+            <div class="form-group row">
+                <label class="col-md-2 col-form-label">Site</label>
+                
+                <div class="col-sm-6">
+
+                    <select name="site_id" class="form-control"> 
+                        @foreach($sites as $site)
+                            <option value="{{ $site->id }}">{{$site->name}}</option>
+                        @endforeach
+                    </select>
+
+                </div>
+            </div> <!-- .form-group -->
+
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Distance</label>
+                <div class="col-sm-10">
+                    @if ($errors->has('distance'))
+                    <input name="distance" type="text" class="form-control is-invalid" value="{{ old('name') }}">
+                    <div class="invalid-feedback">{{ $errors->first('distance') }}</div>
+                    @else
+                    <input name="distance" type="text" class="form-control" value="{{ $hotel->distance }}">
+                    @endif
+                </div>
+            </div>
+
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Option</label>
                 <div class="col-sm-10 pt-2 pl-5">

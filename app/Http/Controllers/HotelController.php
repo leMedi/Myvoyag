@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Validator;
 use App\Hotel;
+use App\Site;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 
@@ -28,6 +29,7 @@ class HotelController extends Controller
     {
         return view('admin.hotels', [
             'hotels' => Hotel::all(),
+            'sites'  => Site::all(), 
         ]);
     }
 
@@ -59,6 +61,10 @@ class HotelController extends Controller
             'city'      => 'required|max:30',
             'address'   => 'required',
             'price'     => 'required|min:0',
+            'site_id'   => 'required',
+            'distance'   => 'required',
+            
+            
         ]);
 
         $hotel = new Hotel;
@@ -69,6 +75,8 @@ class HotelController extends Controller
         $hotel->city = Input::get('city');
         $hotel->address = Input::get('address');
         $hotel->price = Input::get('price');
+        $hotel->site_id = Input::get('site_id');
+        $hotel->distance = Input::get('distance');
         
         if($request->has('with_food'))
             $hotel->with_food = true;
@@ -103,7 +111,8 @@ class HotelController extends Controller
     public function edit(Hotel $hotel)
     {
         return view('admin.hotel_edit', [
-            'hotel' => $hotel
+            'hotel' => $hotel,
+            'sites'  => Site::all(), 
         ]);
     }
 
@@ -125,6 +134,8 @@ class HotelController extends Controller
             'city'      => 'required|max:30',
             'address'   => 'required',
             'price'     => 'required|min:0',
+            'site_id'   => 'required',
+            'distance'   => 'required',
         ]);
 
         $hotel->name    = Input::get('name');
@@ -134,6 +145,8 @@ class HotelController extends Controller
         $hotel->city    = Input::get('city');
         $hotel->address = Input::get('address');
         $hotel->price   = Input::get('price');
+        $hotel->site_id = Input::get('site_id');
+        $hotel->distance = Input::get('distance');
         
         if($request->has('with_food'))
             $hotel->with_food = true;
