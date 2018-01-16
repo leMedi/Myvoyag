@@ -37,7 +37,7 @@
                     'action_text'   => 'saisir une demande',
                     'border'        => '',
                     'btn_classe'     => 'btn-primary',
-                    'action_link'   => '',
+                    'action_link'   => '/demande/create',
                     'img'           => asset('imgs/icon-intro3.svg')
                     ])
                     Saisir une nouvelle demande de voyage
