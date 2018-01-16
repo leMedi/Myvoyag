@@ -337,10 +337,9 @@
                 type: 'POST',
                 url: '{{ url("/demande/new/" . $demande->id . "/saveTicket") }}',
                 data: ticket,
-                {{--  dataType: 'json',  --}}
                 success: function (data) {
-                    {{--  if(data == "yes")  --}}
-                        {{--  location.href = "";  --}}
+                    if(data == "yes")
+                        location.href = '{{url("demande/new/")}}/{{$demande->id}}/step3';
                 }
             });
 
