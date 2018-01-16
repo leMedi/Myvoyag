@@ -136,7 +136,7 @@
               <!-- COPY -->
               <tr>
                 <td bgcolor="#ffffff" align="left" style="padding: 20px 30px 40px 30px; color: #666666; font-family: &apos;Lato&apos;, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 25px;">
-                  <p style="margin: 0;">{{ $content }}</p>
+                  <p style="margin: 0;">{!! $content !!}</p>
                 </td>
               </tr>
               <!-- BULLETPROOF BUTTON -->
