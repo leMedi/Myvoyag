@@ -13,19 +13,6 @@
 
 Route::get('/', 'HomeController@index');
 
-// Route::get('/demandes', function(){
-//     return view('demandes.new');
-// });
-
-// Route::get('/demandes/step/1', function(){
-//     return view('demandes.step1');
-// });
-
-// Route::get('/demandes/step/2', function(){
-//     return view('demandes.step2', [
-//         'user' => Auth::user()
-//     ]);
-// });
 /////////
 //= Demande
 /////
@@ -50,7 +37,12 @@ Route::post('/demande/new/{demande}/step4', 'DemandeController@saveStep4');
 /* Tasks */
 Route::post('/demande/task/{id}', 'TaskController@store'); // add task to travel demande
 Route::delete('/tasks/{task}', 'TaskController@destroy');
-// Route::delete('/tasks', 'TaskController@destroy');
+
+
+/*Request*/
+Route::get('/demande/request/create/{demande}', 'DemandeController@create');
+Route::get('/demande/request/{joinRequest}/approve', 'DemandeController@approve');
+Route::get('/demande/request/{joinRequest}/deny', 'DemandeController@deny');
 
 
 /////////
