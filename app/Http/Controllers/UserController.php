@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Validator;
 use App\User;
+use App\Site;
 use Image;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
@@ -161,6 +162,7 @@ class UserController extends Controller
     {
         return view('admin.user_add',[
             'users' => User::all(),
+            'sites'  => Site::all(), 
         ]);
     }
 

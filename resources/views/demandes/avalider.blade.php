@@ -32,8 +32,9 @@
                                 'depart'    => $demande->destinationSite->name,
                                 'date'      => $demande->departure_date,
                                 'count'     => 5 - $demande->nbr_personnes,
+                                'firstname' => $demande->owner->firstName, 
+                                'lastname'  => $demande->owner->lastName,
                             ])
-                                Mathilda Campbell
                             @endcomponent
                         </div>
                     @endforeach

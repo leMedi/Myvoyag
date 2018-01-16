@@ -15,11 +15,11 @@ class DatabaseSeeder extends Seeder
         $this->call(SitesTableSeeder::class);
         
         DB::table('users')->insert([
-            'firstname'              => 'achraf',
-            'lastname'               => 'jacobi',
+            'firstname'              => 'Achraf',
+            'lastname'               => 'ELYaacoubi',
             'date_naissance'         => '1996-10-08',
             'tel'                    => '0699998775',
-            'email'                  => 'achraf@jacobi.com',
+            'email'                  => 'achraf.jacobi@gmail.com',
             'password'               => bcrypt('hello'),
             'passport'               => '12SD48483 1',
             'passport_expMonth'      => '05',
@@ -36,14 +36,15 @@ class DatabaseSeeder extends Seeder
             'car_transmission'       => 'automatic',
             'car_carburant'          => 'escence',
             'flight_seat'            => 'couloir',
+            'avatar'                 => 'achraf.jpg'
         ]);
 
         DB::table('users')->insert([
-            'firstname'              => 'ali',
-            'lastname'               => 'jacobi',
+            'firstname'              => 'Ali',
+            'lastname'               => 'Jacobi',
             'date_naissance'         => '1996-02-09',
             'tel'                    => '0686786999',
-            'email'                  => 'ali@jacobi.com',
+            'email'                  => 'ali.jacobi@gmail.com',
             'password'               => bcrypt('hello'),
             'passport'               => '118SQ9QB 1',
             'passport_expMonth'      => '09',
@@ -60,6 +61,60 @@ class DatabaseSeeder extends Seeder
             'car_transmission'       => 'automatic',
             'car_carburant'          => 'gazoil',
             'flight_seat'            => 'hublot',
+            'avatar'                 => 'ali.jpg'
+            
+        ]);
+
+        DB::table('users')->insert([
+            'firstname'              => 'Youness',
+            'lastname'               => 'Saqi',
+            'date_naissance'         => '1996-05-09',
+            'tel'                    => '0699743355',
+            'email'                  => 'youness.saqi@gmail.com',
+            'password'               => bcrypt('hello'),
+            'passport'               => '19CC874 1',
+            'passport_expMonth'      => '06',
+            'passport_expYear'       => '2029',
+            'cin'                    => '987456321',
+            'cin_valideMonth'        => '09',
+            'cin_valideYear'         => '2025',
+            'type'                   => 'salarier',
+            'departement'            => 'gestion',
+            'code_imputation'        => '987561',
+            'code_etablissement'     => '989897',
+            'site_id'                => 1,
+            'responsable'            => 2,
+            'car_transmission'       => 'automatic',
+            'car_carburant'          => 'gazoil',
+            'flight_seat'            => 'hublot',
+            'avatar'                 => 'youness.jpg'
+            
+        ]);
+
+        DB::table('users')->insert([
+            'firstname'              => 'Amal',
+            'lastname'               => 'Nahiz',
+            'date_naissance'         => '1993-02-09',
+            'tel'                    => '0661457789',
+            'email'                  => 'amal.jacobi@gmail.com',
+            'password'               => bcrypt('hello'),
+            'passport'               => '9eB88C 1',
+            'passport_expMonth'      => '08',
+            'passport_expYear'       => '2026',
+            'cin'                    => '1998745',
+            'cin_valideMonth'        => '06',
+            'cin_valideYear'         => '2023',
+            'type'                   => 'gestionnaire',
+            'departement'            => 'proceder',
+            'code_imputation'        => '9873214',
+            'code_etablissement'     => '852647',
+            'site_id'                => 2,
+            'responsable'            => 1,
+            'car_transmission'       => 'automatic',
+            'car_carburant'          => 'gazoil',
+            'flight_seat'            => 'hublot',
+            'avatar'                 => 'amal.jpg'
+            
         ]);
         
 
