@@ -117,3 +117,4 @@ Route::get('/useradd/listDirecteur/','UserController@listDirecteur');
 
 
 Route::get('/demandes','DemandeController@index');
+Route::get('/avalider','DemandeController@avalider');
