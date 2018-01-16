@@ -116,6 +116,60 @@ class DatabaseSeeder extends Seeder
             'avatar'                 => 'amal.jpg'
             
         ]);
+
+
+        DB::table('users')->insert([
+            'firstname'              => 'Yassine',
+            'lastname'               => 'Abouche',
+            'date_naissance'         => '1996-10-08',
+            'tel'                    => '0699998775',
+            'email'                  => 'y.abouch@gmail.com',
+            'password'               => bcrypt('hello'),
+            'passport'               => '12SD484',
+            'passport_expMonth'      => '05',
+            'passport_expYear'       => '2060',
+            'cin'                    => '19654552333',
+            'cin_valideMonth'        => '09',
+            'cin_valideYear'         => '2018',
+            'type'                   => 'responsable',
+            'departement'            => 'info',
+            'code_imputation'        => '18659626',
+            'code_etablissement'     => '65615',
+            'site_id'                => 1,
+            'responsable'            => 2,
+            'car_transmission'       => 'automatic',
+            'car_carburant'          => 'escence',
+            'flight_seat'            => 'couloir',
+            'avatar'                 => 'youness.jpg'
+        ]);
+
+        DB::table('users')->insert([
+            'firstname'              => 'Ahmed',
+            'lastname'               => 'Kousta',
+            'date_naissance'         => '1996-10-08',
+            'tel'                    => '0699998775',
+            'email'                  => 'a.kousta@gmail.com',
+            'password'               => bcrypt('hello'),
+            'passport'               => '12SD484',
+            'passport_expMonth'      => '05',
+            'passport_expYear'       => '2060',
+            'cin'                    => '19654042333',
+            'cin_valideMonth'        => '09',
+            'cin_valideYear'         => '2018',
+            'type'                   => 'responsable',
+            'departement'            => 'info',
+            'code_imputation'        => '18659626',
+            'code_etablissement'     => '65615',
+            'site_id'                => 1,
+            'responsable'            => 2,
+            'car_transmission'       => 'automatic',
+            'car_carburant'          => 'escence',
+            'flight_seat'            => 'couloir',
+            'avatar'                 => 'youness.jpg'
+        ]);
+
+
+
         
 
     }
