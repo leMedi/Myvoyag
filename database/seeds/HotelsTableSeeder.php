@@ -12,10 +12,10 @@ class HotelsTableSeeder extends Seeder
     public function run()
     {
         DB::table('hotels')->insert([
-            'name' => 'Eiffel Capitol',
+            'name' => 'Jenaro Capitalo',
             'tel' => '+33 1 45 78 61 00',
-            'country' => 'France',
-            'city' => 'Paris',
+            'country' => 'Italy',
+            'city' => 'Rome',
             'address' => '9 Rue Viala, 75015 Paris, France',
             'rating' => 3,
             'price' => 80,
