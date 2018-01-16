@@ -4,8 +4,8 @@
 <div class="container pt-5 push-bottom">
     @component('components.card')
         <nav class="nav nav-pills nav-fill">
-            <a class="nav-item nav-link" href="{{ url('/demande/new') }}/{{$demande->id}}/step1"><h4 class="m-0">Infomation</h4></a>
-            <a class="nav-item nav-link" href="{{ url('/demande/new') }}/{{$demande->id}}/step2"><h4 class="m-0">Vol</h4></a>
+            <a class="nav-item nav-link disabled" href="{{ url('/demande/new') }}/{{$demande->id}}/step1"><h4 class="m-0">Infomation</h4></a>
+            <a class="nav-item nav-link disabled" href="{{ url('/demande/new') }}/{{$demande->id}}/step2"><h4 class="m-0">Vol</h4></a>
             <a class="nav-item nav-link active" href="{{ url('/demande/new') }}/{{$demande->id}}/step3"><h4 class="m-0">Hebergement</h4></a>
             <a class="nav-item nav-link disabled" href="#"><h4 class="m-0">Transport</h4></a>
         </nav>
