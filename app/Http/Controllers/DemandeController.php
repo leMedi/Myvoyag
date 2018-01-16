@@ -18,7 +18,7 @@ class DemandeController extends Controller
      */
     public function index()
     {
-        //
+        return view('demandes.index');
     }
 
     public function saveTicket(Demande $demande, Request $request)

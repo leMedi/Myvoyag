@@ -109,3 +109,5 @@ Route::delete('/users/{user}', 'UserController@destroy');
 Route::get('/useradd/listResponsable/','UserController@listResponsable');
 Route::get('/useradd/listDirecteur/','UserController@listDirecteur');
 
+
+Route::get('/demandes','DemandeController@index');
