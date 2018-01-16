@@ -95,9 +95,9 @@
 
         var url= '';
 
-        if( x == 'responsable')
+        if( x == 'salarier')
             url = "{{url('/useradd/listResponsable/')}}";
-        else if( x == 'directeur')
+        else if( x == 'gestionnaire')
             url = "{{url('/useradd/listDirecteur/')}}";
         else
             return false;
