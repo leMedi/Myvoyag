@@ -10,4 +10,14 @@ class Demande extends Model
     {
         return $this->hasMany('App\Task');
     }
+
+    public function departureSite()
+    {
+        return $this->belongsTo('App\Site', 'departure_site_id');
+    }
+
+    public function destinationSite()
+    {
+        return $this->belongsTo('App\Site', 'destination_site_id');
+    }
 }
