@@ -34,6 +34,7 @@
                                     'count'     => 5 - $demande->nbr_personnes,
                                     'firstname' => $demande->owner->firstName, 
                                     'lastname'  => $demande->owner->lastName,
+                                    'request_url' => url('/demande/request/create/' . $demande->id)
                                 ])
                                 @endcomponent
                             </div>

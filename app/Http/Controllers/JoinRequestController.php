@@ -23,7 +23,7 @@ class JoinRequestController extends Controller
 
         // TODO: send mail
         Mail::send('mail.join', [
-            'title'     => 'Approver Demande de ' . $demande->owner->fullname(),
+            'title'     => 'Approver Demande de ' . $user->fullname(),
             'content'   => 'Bonjour '.$demande->owner->firstName.', <br>C’est '.$user->fullname().'.J’ai vu que tu pars à '.$demande->destinationSite->name.' du '.$demande->departure_date.' au '.$demande->return_date.', puis je partir avec toi ? ',
             'actionMsg' => 'Accepter',
             'actionUrl' => url('/demande/request/'.$joinRequest->id.'/approve'),
@@ -55,7 +55,7 @@ class JoinRequestController extends Controller
             'title'     => 'Demande Acceptée',
             'content'   => 'Bonjour '.$joinRequest->owner->firstName.', <br>'.$user->fullname().', a accepetée votre demande'
         ], 
-        function ($message)
+        function ($message) use ($user, $joinRequest)
         {
 
             $message->from($user->email, $user->fullname());
@@ -78,7 +78,7 @@ class JoinRequestController extends Controller
 
         Mail::send('mail.join', [
             'title'     => 'Demande est Refusé',
-            'content'   => 'Bonjour '.$joinRequest->owner->firstName.', <br>'.$user->fullname().', a acceptée votre demande'
+            'content'   => 'Bonjour '.$joinRequest->owner->firstName.', <br>'.$user->fullname().', a Refusé votre demande'
         ], 
         function ($message)
         {
